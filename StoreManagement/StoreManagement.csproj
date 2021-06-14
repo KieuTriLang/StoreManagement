@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A087406-2CC7-4D4A-ADFF-DEC4333F4918}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StoreManagement</RootNamespace>
+    <AssemblyName>StoreManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2, Version=1.0.1.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.1.7\lib\net40\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Presentation\Admin\UIAECategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIAECategory.Designer.cs">
+      <DependentUpon>UIAECategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIAEEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIAEEmployee.Designer.cs">
+      <DependentUpon>UIAEEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIAEProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIAEProduct.Designer.cs">
+      <DependentUpon>UIAEProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIEmployees.Designer.cs">
+      <DependentUpon>UIEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Admin\UICategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Admin\UICategories.Designer.cs">
+      <DependentUpon>UICategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIAdmin.Designer.cs">
+      <DependentUpon>UIAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIManagement.Designer.cs">
+      <DependentUpon>UIManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Admin\UIProducts.Designer.cs">
+      <DependentUpon>UIProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Admin\UISettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Admin\UISettings.Designer.cs">
+      <DependentUpon>UISettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Main\UIMainControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Main\UIMainControl.Designer.cs">
+      <DependentUpon>UIMainControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation\Admin\UIAECategory.resx">
+      <DependentUpon>UIAECategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Admin\UIAEEmployee.resx">
+      <DependentUpon>UIAEEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Admin\UIAEProduct.resx">
+      <DependentUpon>UIAEProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Admin\UIEmployees.resx">
+      <DependentUpon>UIEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Admin\UICategories.resx">
+      <DependentUpon>UICategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Admin\UIAdmin.resx">
+      <DependentUpon>UIAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Admin\UIManagement.resx">
+      <DependentUpon>UIManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Admin\UIProducts.resx">
+      <DependentUpon>UIProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Admin\UISettings.resx">
+      <DependentUpon>UISettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Loading.resx">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop_72px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\options-lines.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mechanical-gears-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload-button.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
