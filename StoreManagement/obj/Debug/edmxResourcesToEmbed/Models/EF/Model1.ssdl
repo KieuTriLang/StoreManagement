@@ -29,6 +29,7 @@
     <Property Name="ID" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="CATENAME" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="ILLUSTRATION" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IMAGE_PATH" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="CREATED_AT" Type="datetime" />
     <Property Name="UPDATED_AT" Type="datetime" />
   </EntityType>
@@ -70,7 +71,7 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <Association Name="FK__accounts__EMPLOY__123EB7A3">
+  <Association Name="FK__accounts__EMPLOY__3493CFA7">
     <End Role="employees" Type="Self.employees" Multiplicity="0..1" />
     <End Role="accounts" Type="Self.accounts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -82,7 +83,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__products__CATEGO__1332DBDC">
+  <Association Name="FK__products__CATEGO__3587F3E0">
     <End Role="categories" Type="Self.categories" Multiplicity="1" />
     <End Role="products" Type="Self.products" Multiplicity="*" />
     <ReferentialConstraint>
@@ -101,11 +102,11 @@
     <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__accounts__EMPLOY__123EB7A3" Association="Self.FK__accounts__EMPLOY__123EB7A3">
+    <AssociationSet Name="FK__accounts__EMPLOY__3493CFA7" Association="Self.FK__accounts__EMPLOY__3493CFA7">
       <End Role="employees" EntitySet="employees" />
       <End Role="accounts" EntitySet="accounts" />
     </AssociationSet>
-    <AssociationSet Name="FK__products__CATEGO__1332DBDC" Association="Self.FK__products__CATEGO__1332DBDC">
+    <AssociationSet Name="FK__products__CATEGO__3587F3E0" Association="Self.FK__products__CATEGO__3587F3E0">
       <End Role="categories" EntitySet="categories" />
       <End Role="products" EntitySet="products" />
     </AssociationSet>

@@ -31,6 +31,7 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CATENAME" ColumnName="CATENAME" />
           <ScalarProperty Name="ILLUSTRATION" ColumnName="ILLUSTRATION" />
+          <ScalarProperty Name="IMAGE_PATH" ColumnName="IMAGE_PATH" />
           <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
           <ScalarProperty Name="UPDATED_AT" ColumnName="UPDATED_AT" />
         </MappingFragment>

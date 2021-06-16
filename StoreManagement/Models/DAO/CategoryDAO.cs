@@ -31,6 +31,7 @@ namespace StoreManagement.Models.DAO
         {
             try
             {
+                info.CREATED_AT = DateTime.Now;
                 db.categories.Add(info);
                 db.SaveChanges();
             }

@@ -37,6 +37,7 @@ namespace StoreManagement.Presentation.Admin
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnUpload = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.lbNotify = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -194,12 +195,22 @@ namespace StoreManagement.Presentation.Admin
             this.btnUpload.MouseEnter += new System.EventHandler(this.btnUpload_MouseEnter);
             this.btnUpload.MouseLeave += new System.EventHandler(this.btnUpload_MouseLeave);
             // 
+            // lbNotify
+            // 
+            this.lbNotify.AutoSize = true;
+            this.lbNotify.ForeColor = System.Drawing.Color.Red;
+            this.lbNotify.Location = new System.Drawing.Point(195, 91);
+            this.lbNotify.Name = "lbNotify";
+            this.lbNotify.Size = new System.Drawing.Size(0, 20);
+            this.lbNotify.TabIndex = 53;
+            // 
             // UIAECategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
             this.ClientSize = new System.Drawing.Size(540, 612);
+            this.Controls.Add(this.lbNotify);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -227,5 +238,6 @@ namespace StoreManagement.Presentation.Admin
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ImageButton btnUpload;
+        private System.Windows.Forms.Label lbNotify;
     }
 }

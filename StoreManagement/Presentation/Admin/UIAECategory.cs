@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StoreManagement.Models.DAO;
+using StoreManagement.Models.EF;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +16,31 @@ namespace StoreManagement.Presentation.Admin
 {
     public partial class UIAECategory : Form
     {
+        private string path;
+        private bool result_;
+        public bool Result
+        {
+            get
+            {
+                return result_;
+            }
+        }
+        private string key_;
+        public string Key
+        {
+            get
+            {
+                return key_;
+            }
+        }
+        private string imagePath_;
+        public string ImagePath
+        {
+            get
+            {
+                return imagePath_;
+            }
+        }
         public UIAECategory()
         {
             InitializeComponent();
@@ -22,6 +49,7 @@ namespace StoreManagement.Presentation.Admin
                 btnTitle.Text = "Details";
                 btnSave.Hide();
                 btnCancel.Hide();
+                LoadData(UICategories.instance.categoryID);
             }
             if (UICategories.instance.typeForm == 1)
             {
@@ -32,6 +60,7 @@ namespace StoreManagement.Presentation.Admin
             {
                 btnTitle.Text = "Edit";
                 btnClose.Hide();
+                LoadData(UICategories.instance.categoryID);
             }
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -51,7 +80,7 @@ namespace StoreManagement.Presentation.Admin
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            Save();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -67,9 +96,8 @@ namespace StoreManagement.Presentation.Admin
                 dialog.Multiselect = false;
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    String path = dialog.FileName;
+                    path = dialog.FileName;
                     btnUpload.Image = new Bitmap(path);
-                    Console.WriteLine(path);
                 }
             }
         }
@@ -89,6 +117,85 @@ namespace StoreManagement.Presentation.Admin
             {
                 btnUpload.BackColor = Color.FromArgb(71, 100, 150);
             }
+        }
+        private bool checkTB()
+        {
+            if(tbNameCate.Text.Trim() =="")
+            {
+                return false;
+            }
+            return true;
+        }
+        private category InitCategory(string key)
+        {
+            CategoryDAO productDAO = new CategoryDAO();
+            category category = new category();
+            category.ID = UICategories.instance.typeForm == 1 ? productDAO.SetID() : UICategories.instance.categoryID;
+            category.CATENAME = tbNameCate.Text.Trim();
+            category.ILLUSTRATION = key;
+            return category;
+        }
+        private void Save()
+        {
+            if (checkTB())
+            {
+                string key = tbNameCate.Text.Trim();
+                CategoryDAO categoryDAO = new CategoryDAO();
+                string newfilename = Path.Combine(Environment.CurrentDirectory, @"Images\", Path.GetFileName(path));
+                string rename = Path.Combine(Environment.CurrentDirectory, @"Images\", key + ".png");
+                if (File.Exists(rename))
+                {
+                    lbNotify.Text = "*name already exists";
+                    tbNameCate.Text = "";
+                }
+                else
+                {
+                    File.Copy(path, newfilename);
+                    File.Move(newfilename, rename);
+                    if(UICategories.instance.typeForm == 1)
+                    {
+                        category category = InitCategory(key);
+                        category.IMAGE_PATH = rename;
+                        if (categoryDAO.Add(category))
+                        {
+                            MessageBox.Show("Add successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            result_ = true;
+                            key_ = key;
+                            imagePath_ = rename;
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Add failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        category category = InitCategory(key);
+                        category.IMAGE_PATH = rename;
+                        if (categoryDAO.Edit(category))
+                        {
+                            MessageBox.Show("Edit successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            result_ = true;
+                            key_ = key;
+                            imagePath_ = rename;
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Edit failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            
+        }
+        private void LoadData(string id)
+        {
+            CategoryDAO categoryDAO = new CategoryDAO();
+            category category = categoryDAO.GetSingleByID(id);
+            tbNameCate.Text = category.CATENAME;
+            btnUpload.Image = Image.FromFile(category.IMAGE_PATH);
         }
     }
 }

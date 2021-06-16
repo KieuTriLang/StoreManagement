@@ -33,24 +33,28 @@ namespace StoreManagement.Presentation.Admin
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UICategories));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnFind = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.tbFind = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.VSBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.dgvCategory = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.lLAKCoffeeDataSet = new StoreManagement.LLAKCoffeeDataSet();
+            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriesTableAdapter = new StoreManagement.LLAKCoffeeDataSetTableAdapters.categoriesTableAdapter();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CATENAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ILLUSTRATION = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,8 +62,8 @@ namespace StoreManagement.Presentation.Admin
             this.panel1.Controls.Add(this.btnDel);
             this.panel1.Controls.Add(this.btnEdit);
             this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.guna2CircleButton1);
-            this.panel1.Controls.Add(this.guna2TextBox1);
+            this.panel1.Controls.Add(this.btnFind);
+            this.panel1.Controls.Add(this.tbFind);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -80,6 +84,7 @@ namespace StoreManagement.Presentation.Admin
             this.btnDel.TabIndex = 9;
             this.btnDel.Text = "Delete";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnEdit
             // 
@@ -113,53 +118,54 @@ namespace StoreManagement.Presentation.Admin
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // guna2CircleButton1
+            // btnFind
             // 
-            this.guna2CircleButton1.CheckedState.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.CustomImages.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton1.DisabledState.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.HoverState.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.Image = global::StoreManagement.Properties.Resources.search_64px;
-            this.guna2CircleButton1.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(337, 29);
-            this.guna2CircleButton1.Name = "guna2CircleButton1";
-            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton1.ShadowDecoration.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.Size = new System.Drawing.Size(38, 39);
-            this.guna2CircleButton1.TabIndex = 6;
+            this.btnFind.CheckedState.Parent = this.btnFind;
+            this.btnFind.CustomImages.Parent = this.btnFind;
+            this.btnFind.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFind.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFind.DisabledState.Parent = this.btnFind;
+            this.btnFind.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFind.ForeColor = System.Drawing.Color.White;
+            this.btnFind.HoverState.Parent = this.btnFind;
+            this.btnFind.Image = global::StoreManagement.Properties.Resources.search_64px;
+            this.btnFind.ImageSize = new System.Drawing.Size(12, 12);
+            this.btnFind.Location = new System.Drawing.Point(337, 29);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnFind.ShadowDecoration.Parent = this.btnFind;
+            this.btnFind.Size = new System.Drawing.Size(38, 39);
+            this.btnFind.TabIndex = 6;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
-            // guna2TextBox1
+            // tbFind
             // 
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.BorderRadius = 10;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(94)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(189)))), ((int)(((byte)(105)))));
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(48, 29);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "ID,Name";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(270, 39);
-            this.guna2TextBox1.TabIndex = 5;
+            this.tbFind.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.BorderRadius = 10;
+            this.tbFind.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbFind.DefaultText = "";
+            this.tbFind.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbFind.DisabledState.Parent = this.tbFind;
+            this.tbFind.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbFind.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(94)))));
+            this.tbFind.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.FocusedState.Parent = this.tbFind;
+            this.tbFind.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbFind.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(189)))), ((int)(((byte)(105)))));
+            this.tbFind.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.HoverState.Parent = this.tbFind;
+            this.tbFind.Location = new System.Drawing.Point(48, 29);
+            this.tbFind.Name = "tbFind";
+            this.tbFind.PasswordChar = '\0';
+            this.tbFind.PlaceholderText = "ID,Name";
+            this.tbFind.SelectedText = "";
+            this.tbFind.ShadowDecoration.Parent = this.tbFind;
+            this.tbFind.Size = new System.Drawing.Size(270, 39);
+            this.tbFind.TabIndex = 5;
             // 
             // panel3
             // 
@@ -209,9 +215,9 @@ namespace StoreManagement.Presentation.Admin
             this.dgvCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCategory.ColumnHeadersHeight = 20;
             this.dgvCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
+            this.ID,
+            this.CATENAME,
+            this.ILLUSTRATION});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -257,29 +263,6 @@ namespace StoreManagement.Presentation.Admin
             this.dgvCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvCategory.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCategory_CellMouseDoubleClick);
             // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 45.45455F;
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 107.7922F;
-            this.Column2.HeaderText = "CategoryName";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Illustration";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -290,11 +273,44 @@ namespace StoreManagement.Presentation.Admin
             // 
             // imageList1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(32, 32);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "coffee_to_go_64px.png");
-            this.imageList1.Images.SetKeyName(1, "green_tea_64px.png");
-            this.imageList1.Images.SetKeyName(2, "ice_cream_sundae_64px.png");
+            // 
+            // lLAKCoffeeDataSet
+            // 
+            this.lLAKCoffeeDataSet.DataSetName = "LLAKCoffeeDataSet";
+            this.lLAKCoffeeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoriesBindingSource
+            // 
+            this.categoriesBindingSource.DataMember = "categories";
+            this.categoriesBindingSource.DataSource = this.lLAKCoffeeDataSet;
+            // 
+            // categoriesTableAdapter
+            // 
+            this.categoriesTableAdapter.ClearBeforeFill = true;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // CATENAME
+            // 
+            this.CATENAME.HeaderText = "CATENAME";
+            this.CATENAME.MinimumWidth = 8;
+            this.CATENAME.Name = "CATENAME";
+            this.CATENAME.ReadOnly = true;
+            // 
+            // ILLUSTRATION
+            // 
+            this.ILLUSTRATION.HeaderText = "ILLUSTRATION";
+            this.ILLUSTRATION.MinimumWidth = 8;
+            this.ILLUSTRATION.Name = "ILLUSTRATION";
+            this.ILLUSTRATION.ReadOnly = true;
             // 
             // UICategories
             // 
@@ -313,6 +329,8 @@ namespace StoreManagement.Presentation.Admin
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,11 +345,14 @@ namespace StoreManagement.Presentation.Admin
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewImageColumn Column3;
+        private Guna.UI2.WinForms.Guna2CircleButton btnFind;
+        private Guna.UI2.WinForms.Guna2TextBox tbFind;
         private System.Windows.Forms.ImageList imageList1;
+        private LLAKCoffeeDataSet lLAKCoffeeDataSet;
+        private System.Windows.Forms.BindingSource categoriesBindingSource;
+        private LLAKCoffeeDataSetTableAdapters.categoriesTableAdapter categoriesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CATENAME;
+        private System.Windows.Forms.DataGridViewImageColumn ILLUSTRATION;
     }
 }
