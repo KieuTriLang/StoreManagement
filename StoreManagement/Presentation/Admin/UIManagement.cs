@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,7 +26,7 @@ namespace StoreManagement.Presentation.Admin
             currentChildForm = childForm;
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
-            childForm.BackColor = ChangeColorBrightness(Color.FromArgb(17, 29, 94), 0);
+            childForm.BackColor = ChangeColorBrightness(Color.FromArgb(17, 29, 94),0.1);
             this.pnShow.Controls.Add(childForm);
             this.pnShow.Tag = childForm;
             childForm.BringToFront();
@@ -33,6 +34,44 @@ namespace StoreManagement.Presentation.Admin
             pnTitle.BackColor = ChangeColorBrightness(Color.FromArgb(17, 29, 94), -0.3);
             lbTitle.Text = childForm.Text;
         }
+        //Event
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        {
+            //LoginForm.instance.Close();
+            this.Close();
+        }
+        private void guna2CircleButton2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new UIEmployees(), sender, RGBColors.color6);
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new UIProducts(), sender, RGBColors.color2);
+        }
+
+        private void btnGroceries_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new UICategories(), sender, RGBColors.color3);
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new UISettings(), sender, RGBColors.color4);
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new UIAdmin(), sender, Color.FromArgb(17, 29, 94));
+        }
+
+        //FUNCTION
+
         private struct RGBColors
         {
             public static Color color1 = Color.FromArgb(172, 126, 241);
@@ -103,7 +142,7 @@ namespace StoreManagement.Presentation.Admin
             ActivateButton(btnSender,color);
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
-            childForm.BackColor = ChangeColorBrightness(Color.FromArgb(17, 29, 94), 0);
+            childForm.BackColor = ChangeColorBrightness(Color.FromArgb(17, 29, 94), 0.1);
             this.pnShow.Controls.Add(childForm);
             this.pnShow.Tag = childForm;
             childForm.BringToFront();
@@ -114,35 +153,15 @@ namespace StoreManagement.Presentation.Admin
             //End
 
         }
-        private void guna2CircleButton1_Click(object sender, EventArgs e)
-        {
-            //LoginForm.instance.Close();
-            this.Close();
-        }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private void btnEmployee_Click(object sender, EventArgs e)
+        private void pnTitle_MouseDown(object sender, MouseEventArgs e)
         {
-            OpenChildForm(new UIEmployees(), sender, RGBColors.color6);
-        }
-
-        private void btnProduct_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new UIProducts(), sender, RGBColors.color2);
-        }
-
-        private void btnGroceries_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new UICategories(), sender, RGBColors.color3);
-        }
-
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new UISettings(), sender, RGBColors.color4);
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new UIAdmin(), sender, Color.FromArgb(17, 29, 94));
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void timer1_Tick(object sender, EventArgs e)

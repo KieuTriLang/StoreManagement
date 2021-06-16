@@ -20,3 +20,7 @@ C:\Users\DELL\source\repos\StoreManagement\StoreManagement\obj\Debug\StoreManage
 C:\Users\DELL\source\repos\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Presentation.Admin.UIAEEmployee.resources
 C:\Users\DELL\source\repos\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Presentation.Admin.UIAECategory.resources
 C:\Users\DELL\source\repos\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Presentation.Admin.UIAEProduct.resources
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\bin\Debug\EntityFramework.dll
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\bin\Debug\EntityFramework.xml
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\bin\Debug\EntityFramework.SqlServer.xml

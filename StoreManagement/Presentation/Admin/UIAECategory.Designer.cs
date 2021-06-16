@@ -30,15 +30,13 @@ namespace StoreManagement.Presentation.Admin
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbNameCate = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnTitle = new Guna.UI2.WinForms.Guna2CircleButton();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.btnUpload = new Guna.UI2.WinForms.Guna2ImageButton();
             this.SuspendLayout();
             // 
             // label1
@@ -52,32 +50,32 @@ namespace StoreManagement.Presentation.Admin
             this.label1.TabIndex = 48;
             this.label1.Text = "Name Cate";
             // 
-            // guna2TextBox1
+            // tbNameCate
             // 
-            this.guna2TextBox1.BorderRadius = 7;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.White;
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
-            this.guna2TextBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.White;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(195, 117);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderForeColor = System.Drawing.Color.White;
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(273, 36);
-            this.guna2TextBox1.TabIndex = 47;
+            this.tbNameCate.BorderRadius = 7;
+            this.tbNameCate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbNameCate.DefaultText = "";
+            this.tbNameCate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
+            this.tbNameCate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
+            this.tbNameCate.DisabledState.ForeColor = System.Drawing.Color.White;
+            this.tbNameCate.DisabledState.Parent = this.tbNameCate;
+            this.tbNameCate.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.tbNameCate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
+            this.tbNameCate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbNameCate.FocusedState.Parent = this.tbNameCate;
+            this.tbNameCate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbNameCate.ForeColor = System.Drawing.Color.White;
+            this.tbNameCate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbNameCate.HoverState.Parent = this.tbNameCate;
+            this.tbNameCate.Location = new System.Drawing.Point(195, 117);
+            this.tbNameCate.Name = "tbNameCate";
+            this.tbNameCate.PasswordChar = '\0';
+            this.tbNameCate.PlaceholderForeColor = System.Drawing.Color.White;
+            this.tbNameCate.PlaceholderText = "";
+            this.tbNameCate.SelectedText = "";
+            this.tbNameCate.ShadowDecoration.Parent = this.tbNameCate;
+            this.tbNameCate.Size = new System.Drawing.Size(273, 36);
+            this.tbNameCate.TabIndex = 47;
             // 
             // btnSave
             // 
@@ -97,6 +95,7 @@ namespace StoreManagement.Presentation.Admin
             this.btnSave.Size = new System.Drawing.Size(100, 40);
             this.btnSave.TabIndex = 46;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -140,6 +139,7 @@ namespace StoreManagement.Presentation.Admin
             this.btnTitle.TabIndex = 44;
             this.btnTitle.Text = "Detail";
             this.btnTitle.TextOffset = new System.Drawing.Point(0, 20);
+            this.btnTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnTitle_MouseDown);
             // 
             // btnCancel
             // 
@@ -172,39 +172,27 @@ namespace StoreManagement.Presentation.Admin
             this.label2.TabIndex = 49;
             this.label2.Text = "Illustration";
             // 
-            // guna2Button1
+            // btnUpload
             // 
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.DisabledState.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(168)))), ((int)(((byte)(151)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = global::StoreManagement.Properties.Resources.upload_button;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(16, 16);
-            this.guna2Button1.Location = new System.Drawing.Point(195, 428);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(273, 29);
-            this.guna2Button1.TabIndex = 51;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BorderRadius = 7;
-            this.guna2PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.guna2PictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(100)))), ((int)(((byte)(150)))));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(195, 180);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(273, 241);
-            this.guna2PictureBox1.TabIndex = 50;
-            this.guna2PictureBox1.TabStop = false;
+            this.btnUpload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(100)))), ((int)(((byte)(150)))));
+            this.btnUpload.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnUpload.CheckedState.Parent = this.btnUpload;
+            this.btnUpload.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnUpload.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnUpload.HoverState.Parent = this.btnUpload;
+            this.btnUpload.Image = global::StoreManagement.Properties.Resources.upload_button;
+            this.btnUpload.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnUpload.ImageRotate = 0F;
+            this.btnUpload.Location = new System.Drawing.Point(195, 180);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnUpload.PressedState.Parent = this.btnUpload;
+            this.btnUpload.ShadowDecoration.Parent = this.btnUpload;
+            this.btnUpload.Size = new System.Drawing.Size(273, 273);
+            this.btnUpload.TabIndex = 52;
+            this.btnUpload.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            this.btnUpload.MouseEnter += new System.EventHandler(this.btnUpload_MouseEnter);
+            this.btnUpload.MouseLeave += new System.EventHandler(this.btnUpload_MouseLeave);
             // 
             // UIAECategory
             // 
@@ -212,11 +200,10 @@ namespace StoreManagement.Presentation.Admin
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
             this.ClientSize = new System.Drawing.Size(540, 612);
-            this.Controls.Add(this.guna2Button1);
-            this.Controls.Add(this.guna2PictureBox1);
+            this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.tbNameCate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnTitle);
@@ -225,7 +212,6 @@ namespace StoreManagement.Presentation.Admin
             this.Name = "UIAECategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UIAECategory";
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,13 +220,12 @@ namespace StoreManagement.Presentation.Admin
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox tbNameCate;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2CircleButton btnTitle;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2ImageButton btnUpload;
     }
 }

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LLAKCoffeeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPLOYEEID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ACC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PASS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ROLES" Type="Boolean" />
+    <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
+    <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="employee" Relationship="Self.FK__accounts__EMPLOY__123EB7A3" FromRole="accounts" ToRole="employees" />
+  </EntityType>
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDTABLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BILL1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
+    <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CATENAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ILLUSTRATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
+    <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="products" Relationship="Self.FK__products__CATEGO__1332DBDC" FromRole="categories" ToRole="products" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FULLNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ADR" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PHONENUME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="POSITON" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SALARY" Type="Int32" Nullable="false" />
+    <Property Name="FULLTIME" Type="Boolean" Nullable="false" />
+    <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
+    <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="accounts" Relationship="Self.FK__accounts__EMPLOY__123EB7A3" FromRole="employees" ToRole="accounts" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NAMEPROD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CATEGORYID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRICE" Type="Int32" Nullable="false" />
+    <Property Name="BOUGHT" Type="Int32" Nullable="false" />
+    <Property Name="SOLD" Type="Int32" Nullable="false" />
+    <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
+    <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="category" Relationship="Self.FK__products__CATEGO__1332DBDC" FromRole="products" ToRole="categories" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__accounts__EMPLOY__123EB7A3">
+    <End Role="employees" Type="Self.employee" Multiplicity="0..1" />
+    <End Role="accounts" Type="Self.account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employees">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="accounts">
+        <PropertyRef Name="EMPLOYEEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__products__CATEGO__1332DBDC">
+    <End Role="categories" Type="Self.category" Multiplicity="1" />
+    <End Role="products" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="products">
+        <PropertyRef Name="CATEGORYID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LLAKCoffeeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="accounts" EntityType="Self.account" />
+    <EntitySet Name="bills" EntityType="Self.bill" />
+    <EntitySet Name="categories" EntityType="Self.category" />
+    <EntitySet Name="employees" EntityType="Self.employee" />
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__accounts__EMPLOY__123EB7A3" Association="Self.FK__accounts__EMPLOY__123EB7A3">
+      <End Role="employees" EntitySet="employees" />
+      <End Role="accounts" EntitySet="accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__products__CATEGO__1332DBDC" Association="Self.FK__products__CATEGO__1332DBDC">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="products" EntitySet="products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

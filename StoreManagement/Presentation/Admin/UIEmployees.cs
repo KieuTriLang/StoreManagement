@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms.Helpers;
+using StoreManagement.Models.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace StoreManagement.Presentation.Admin
     {
         public static UIEmployees instance;
         public byte typeForm = 0;
+        public string employeeID;
         public UIEmployees()
         {
             InitializeComponent();
@@ -24,27 +26,19 @@ namespace StoreManagement.Presentation.Admin
         //private DataGridViewScrollHelper vScrollHelper;
         private void UIEmployees_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lLAKCoffeeDataSet.accounts' table. You can move, or remove it, as needed.
+            this.accountsTableAdapter.Fill(this.lLAKCoffeeDataSet.accounts);
+            // TODO: This line of code loads data into the 'lLAKCoffeeDataSet.employees' table. You can move, or remove it, as needed.
+            //this.employeesTableAdapter.Fill(this.lLAKCoffeeDataSet.employees);
+            EmployeeDAO employees = new EmployeeDAO();
+            dgvEmployee.DataSource = employees.GetAll();
             //vScrollHelper = new DataGridViewScrollHelper(dgvEmployee, VSBar, true);
-            for (int i = 0; i < 100; i++)
-            {
-                dgvEmployee.Rows.Add(
-                    new Object[]
-                    {
-                        i+1,
-                        "LLAK",
-                        "23/02/1998",
-                        "Hà Nội",
-                        "0123456786",
-                        imageListEmployee.Images[1],
-                        "Manager",
-                        10000
-                    });
-            }
             //vScrollHelper.UpdateScrollBar();
         }
         private void dgvEmployee_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             typeForm = 0;
+            employeeID = dgvEmployee.CurrentRow.Cells["ID"].Value.ToString();
             UIAEEmployee frm = new UIAEEmployee();
             frm.Show();
         }
@@ -52,16 +46,48 @@ namespace StoreManagement.Presentation.Admin
         {
             typeForm = 1;
             UIAEEmployee frm = new UIAEEmployee();
-            frm.Show();
+            frm.ShowDialog();
+            if (frm.Result)
+            {
+                EmployeeDAO employees = new EmployeeDAO();
+                dgvEmployee.DataSource = employees.GetAll();
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             typeForm = 2;
+            employeeID = dgvEmployee.CurrentRow.Cells["ID"].Value.ToString();
             UIAEEmployee frm = new UIAEEmployee();
-            frm.Show();
+            frm.ShowDialog();
+            if (frm.Result)
+            {
+                EmployeeDAO employees = new EmployeeDAO();
+                dgvEmployee.DataSource = employees.GetAll();
+            }
         }
 
-        
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            EmployeeDAO employee = new EmployeeDAO();
+            dgvEmployee.DataSource = employee.GetByKey(tbFind.Text.Trim());
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            employeeID = dgvEmployee.CurrentRow.Cells["ID"].Value.ToString();
+            EmployeeDAO eDAO = new EmployeeDAO();
+            AccountDAO aDAO = new AccountDAO();
+            if (aDAO.Delete(employeeID) && eDAO.Delete(employeeID) )
+            {
+                MessageBox.Show("Delete successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvEmployee.DataSource = eDAO.GetAll();
+            }
+            else 
+            {
+                MessageBox.Show("Delete failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            };
+        }
     }
 }

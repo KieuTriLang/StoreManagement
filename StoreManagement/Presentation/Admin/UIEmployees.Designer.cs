@@ -32,32 +32,38 @@ namespace StoreManagement.Presentation.Admin
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UIEmployees));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnFind = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.tbFind = new Guna.UI2.WinForms.Guna2TextBox();
             this.VSBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.dgvEmployee = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lLAKCoffeeDataSet = new StoreManagement.LLAKCoffeeDataSet();
             this.panel2 = new System.Windows.Forms.Panel();
             this.imageListEmployee = new System.Windows.Forms.ImageList(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.employeesTableAdapter = new StoreManagement.LLAKCoffeeDataSetTableAdapters.employeesTableAdapter();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKaccountsEMPLOY656C112CBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountsTableAdapter = new StoreManagement.LLAKCoffeeDataSetTableAdapters.accountsTableAdapter();
+            this.fULLTIMEDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.sALARYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pOSITONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pHONENUMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aDRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fULLNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fKaccountsEMPLOY656C112CBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,8 +71,8 @@ namespace StoreManagement.Presentation.Admin
             this.panel1.Controls.Add(this.btnDel);
             this.panel1.Controls.Add(this.btnEdit);
             this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.guna2CircleButton1);
-            this.panel1.Controls.Add(this.guna2TextBox1);
+            this.panel1.Controls.Add(this.btnFind);
+            this.panel1.Controls.Add(this.tbFind);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -87,6 +93,7 @@ namespace StoreManagement.Presentation.Admin
             this.btnDel.TabIndex = 4;
             this.btnDel.Text = "Delete";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnEdit
             // 
@@ -120,53 +127,54 @@ namespace StoreManagement.Presentation.Admin
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // guna2CircleButton1
+            // btnFind
             // 
-            this.guna2CircleButton1.CheckedState.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.CustomImages.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton1.DisabledState.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.HoverState.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.Image = global::StoreManagement.Properties.Resources.search_64px;
-            this.guna2CircleButton1.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(338, 31);
-            this.guna2CircleButton1.Name = "guna2CircleButton1";
-            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton1.ShadowDecoration.Parent = this.guna2CircleButton1;
-            this.guna2CircleButton1.Size = new System.Drawing.Size(38, 39);
-            this.guna2CircleButton1.TabIndex = 1;
+            this.btnFind.CheckedState.Parent = this.btnFind;
+            this.btnFind.CustomImages.Parent = this.btnFind;
+            this.btnFind.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFind.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFind.DisabledState.Parent = this.btnFind;
+            this.btnFind.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFind.ForeColor = System.Drawing.Color.White;
+            this.btnFind.HoverState.Parent = this.btnFind;
+            this.btnFind.Image = global::StoreManagement.Properties.Resources.search_64px;
+            this.btnFind.ImageSize = new System.Drawing.Size(12, 12);
+            this.btnFind.Location = new System.Drawing.Point(338, 31);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnFind.ShadowDecoration.Parent = this.btnFind;
+            this.btnFind.Size = new System.Drawing.Size(38, 39);
+            this.btnFind.TabIndex = 1;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
-            // guna2TextBox1
+            // tbFind
             // 
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.BorderRadius = 10;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(94)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(189)))), ((int)(((byte)(105)))));
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(49, 31);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "ID,Name or Position";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(270, 39);
-            this.guna2TextBox1.TabIndex = 0;
+            this.tbFind.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.BorderRadius = 10;
+            this.tbFind.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbFind.DefaultText = "";
+            this.tbFind.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbFind.DisabledState.Parent = this.tbFind;
+            this.tbFind.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbFind.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(50)))), ((int)(((byte)(94)))));
+            this.tbFind.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.FocusedState.Parent = this.tbFind;
+            this.tbFind.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbFind.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(189)))), ((int)(((byte)(105)))));
+            this.tbFind.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.HoverState.Parent = this.tbFind;
+            this.tbFind.Location = new System.Drawing.Point(49, 31);
+            this.tbFind.Name = "tbFind";
+            this.tbFind.PasswordChar = '\0';
+            this.tbFind.PlaceholderText = "ID,Name or Position";
+            this.tbFind.SelectedText = "";
+            this.tbFind.ShadowDecoration.Parent = this.tbFind;
+            this.tbFind.Size = new System.Drawing.Size(270, 39);
+            this.tbFind.TabIndex = 0;
             // 
             // VSBar
             // 
@@ -192,6 +200,7 @@ namespace StoreManagement.Presentation.Admin
             this.dgvEmployee.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
             this.dgvEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEmployee.AutoGenerateColumns = false;
             this.dgvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmployee.BackgroundColor = System.Drawing.Color.Black;
             this.dgvEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -205,24 +214,25 @@ namespace StoreManagement.Presentation.Admin
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvEmployee.ColumnHeadersHeight = 20;
+            this.dgvEmployee.ColumnHeadersHeight = 25;
             this.dgvEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEmployee.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ID,
+            this.fULLNAMEDataGridViewTextBoxColumn,
+            this.dOBDataGridViewTextBoxColumn,
+            this.aDRDataGridViewTextBoxColumn,
+            this.pHONENUMEDataGridViewTextBoxColumn,
+            this.pOSITONDataGridViewTextBoxColumn,
+            this.sALARYDataGridViewTextBoxColumn,
+            this.fULLTIMEDataGridViewCheckBoxColumn});
+            this.dgvEmployee.DataSource = this.employeesBindingSource;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmployee.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEmployee.EnableHeadersVisualStyles = false;
             this.dgvEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(62)))));
@@ -249,7 +259,7 @@ namespace StoreManagement.Presentation.Admin
             this.dgvEmployee.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dgvEmployee.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvEmployee.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvEmployee.ThemeStyle.HeaderStyle.Height = 20;
+            this.dgvEmployee.ThemeStyle.HeaderStyle.Height = 25;
             this.dgvEmployee.ThemeStyle.ReadOnly = true;
             this.dgvEmployee.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.dgvEmployee.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -260,77 +270,15 @@ namespace StoreManagement.Presentation.Admin
             this.dgvEmployee.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvEmployee.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEmployee_CellMouseDoubleClick);
             // 
-            // Column1
+            // employeesBindingSource
             // 
-            this.Column1.FillWeight = 45.45455F;
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.employeesBindingSource.DataMember = "employees";
+            this.employeesBindingSource.DataSource = this.lLAKCoffeeDataSet;
             // 
-            // Column2
+            // lLAKCoffeeDataSet
             // 
-            this.Column2.FillWeight = 107.7922F;
-            this.Column2.HeaderText = "Name";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = "--/--/----";
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column3.FillWeight = 107.7922F;
-            this.Column3.HeaderText = "Dob";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 107.7922F;
-            this.Column4.HeaderText = "Address";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.FillWeight = 107.7922F;
-            this.Column5.HeaderText = "PhoneNumber";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.FillWeight = 107.7922F;
-            this.Column6.HeaderText = "Fulltime";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Column7
-            // 
-            this.Column7.FillWeight = 107.7922F;
-            this.Column7.HeaderText = "Position";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            dataGridViewCellStyle4.Format = "C0";
-            dataGridViewCellStyle4.NullValue = "0";
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column8.FillWeight = 107.7922F;
-            this.Column8.HeaderText = "Salary";
-            this.Column8.MinimumWidth = 8;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
+            this.lLAKCoffeeDataSet.DataSetName = "LLAKCoffeeDataSet";
+            this.lLAKCoffeeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel2
             // 
@@ -356,6 +304,83 @@ namespace StoreManagement.Presentation.Admin
             this.panel3.Size = new System.Drawing.Size(1059, 15);
             this.panel3.TabIndex = 5;
             // 
+            // employeesTableAdapter
+            // 
+            this.employeesTableAdapter.ClearBeforeFill = true;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // fKaccountsEMPLOY656C112CBindingSource
+            // 
+            this.fKaccountsEMPLOY656C112CBindingSource.DataMember = "FK__accounts__EMPLOY__656C112C";
+            this.fKaccountsEMPLOY656C112CBindingSource.DataSource = this.employeesBindingSource;
+            // 
+            // accountsTableAdapter
+            // 
+            this.accountsTableAdapter.ClearBeforeFill = true;
+            // 
+            // fULLTIMEDataGridViewCheckBoxColumn
+            // 
+            this.fULLTIMEDataGridViewCheckBoxColumn.DataPropertyName = "FULLTIME";
+            this.fULLTIMEDataGridViewCheckBoxColumn.HeaderText = "FULLTIME";
+            this.fULLTIMEDataGridViewCheckBoxColumn.MinimumWidth = 8;
+            this.fULLTIMEDataGridViewCheckBoxColumn.Name = "fULLTIMEDataGridViewCheckBoxColumn";
+            this.fULLTIMEDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // sALARYDataGridViewTextBoxColumn
+            // 
+            this.sALARYDataGridViewTextBoxColumn.DataPropertyName = "SALARY";
+            this.sALARYDataGridViewTextBoxColumn.HeaderText = "SALARY";
+            this.sALARYDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sALARYDataGridViewTextBoxColumn.Name = "sALARYDataGridViewTextBoxColumn";
+            this.sALARYDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pOSITONDataGridViewTextBoxColumn
+            // 
+            this.pOSITONDataGridViewTextBoxColumn.DataPropertyName = "POSITON";
+            this.pOSITONDataGridViewTextBoxColumn.HeaderText = "POSITON";
+            this.pOSITONDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.pOSITONDataGridViewTextBoxColumn.Name = "pOSITONDataGridViewTextBoxColumn";
+            this.pOSITONDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pHONENUMEDataGridViewTextBoxColumn
+            // 
+            this.pHONENUMEDataGridViewTextBoxColumn.DataPropertyName = "PHONENUME";
+            this.pHONENUMEDataGridViewTextBoxColumn.HeaderText = "PHONENUME";
+            this.pHONENUMEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.pHONENUMEDataGridViewTextBoxColumn.Name = "pHONENUMEDataGridViewTextBoxColumn";
+            this.pHONENUMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // aDRDataGridViewTextBoxColumn
+            // 
+            this.aDRDataGridViewTextBoxColumn.DataPropertyName = "ADR";
+            this.aDRDataGridViewTextBoxColumn.HeaderText = "ADR";
+            this.aDRDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.aDRDataGridViewTextBoxColumn.Name = "aDRDataGridViewTextBoxColumn";
+            this.aDRDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dOBDataGridViewTextBoxColumn
+            // 
+            this.dOBDataGridViewTextBoxColumn.DataPropertyName = "DOB";
+            this.dOBDataGridViewTextBoxColumn.HeaderText = "DOB";
+            this.dOBDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dOBDataGridViewTextBoxColumn.Name = "dOBDataGridViewTextBoxColumn";
+            this.dOBDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fULLNAMEDataGridViewTextBoxColumn
+            // 
+            this.fULLNAMEDataGridViewTextBoxColumn.DataPropertyName = "FULLNAME";
+            this.fULLNAMEDataGridViewTextBoxColumn.HeaderText = "FULLNAME";
+            this.fULLNAMEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.fULLNAMEDataGridViewTextBoxColumn.Name = "fULLNAMEDataGridViewTextBoxColumn";
+            this.fULLNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // UIEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -372,7 +397,10 @@ namespace StoreManagement.Presentation.Admin
             this.Load += new System.EventHandler(this.UIEmployees_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fKaccountsEMPLOY656C112CBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -384,19 +412,24 @@ namespace StoreManagement.Presentation.Admin
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvEmployee;
         private System.Windows.Forms.ImageList imageListEmployee;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
+        private Guna.UI2.WinForms.Guna2TextBox tbFind;
+        private Guna.UI2.WinForms.Guna2CircleButton btnFind;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewImageColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private LLAKCoffeeDataSet lLAKCoffeeDataSet;
+        private System.Windows.Forms.BindingSource employeesBindingSource;
+        private LLAKCoffeeDataSetTableAdapters.employeesTableAdapter employeesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.BindingSource fKaccountsEMPLOY656C112CBindingSource;
+        private LLAKCoffeeDataSetTableAdapters.accountsTableAdapter accountsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fULLNAMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dOBDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aDRDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pHONENUMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pOSITONDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sALARYDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn fULLTIMEDataGridViewCheckBoxColumn;
     }
 }
