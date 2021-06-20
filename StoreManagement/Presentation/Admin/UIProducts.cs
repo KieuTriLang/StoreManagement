@@ -41,31 +41,36 @@ namespace StoreManagement.Presentation.Admin
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            productID = dgvProduct.CurrentRow.Cells["ID"].Value.ToString();
-            typeForm = 2;
-            UIAEProduct frm = new UIAEProduct();
-            frm.ShowDialog();
-            if (frm.Result)
+            if(dgvProduct.CurrentRow != null)
             {
-                ProductDAO products = new ProductDAO();
-                dgvProduct.DataSource = products.GetAll();
+                productID = dgvProduct.CurrentRow.Cells["ID"].Value.ToString();
+                typeForm = 2;
+                UIAEProduct frm = new UIAEProduct();
+                frm.ShowDialog();
+                if (frm.Result)
+                {
+                    ProductDAO products = new ProductDAO();
+                    dgvProduct.DataSource = products.GetAll();
+                }
             }
         }
         private void btnDel_Click(object sender, EventArgs e)
         {
-            productID = dgvProduct.CurrentRow.Cells["ID"].Value.ToString();
-            ProductDAO productDAO = new ProductDAO();
-            if (productDAO.Delete(productID))
+            if (dgvProduct.CurrentRow != null)
             {
-                MessageBox.Show("Delete successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dgvProduct.DataSource = productDAO.GetAll();
-            }
-            else
-            {
-                MessageBox.Show("Delete failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                productID = dgvProduct.CurrentRow.Cells["ID"].Value.ToString();
+                ProductDAO productDAO = new ProductDAO();
+                if (productDAO.Delete(productID))
+                {
+                    MessageBox.Show("Delete successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvProduct.DataSource = productDAO.GetAll();
+                }
+                else
+                {
+                    MessageBox.Show("Delete failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }
-
+                }
+            }            
         }
 
         private void UIProducts_Load(object sender, EventArgs e)
@@ -79,7 +84,14 @@ namespace StoreManagement.Presentation.Admin
         private void btnFind_Click(object sender, EventArgs e)
         {
             ProductDAO productDAO = new ProductDAO();
-            dgvProduct.DataSource = productDAO.GetByKey(tbFind.Text.Trim());
+            if (tbFind.Text.Trim() == "/all")
+            {
+                dgvProduct.DataSource = productDAO.GetAll();
+            }
+            else
+            {
+                dgvProduct.DataSource = productDAO.GetByKey(tbFind.Text.Trim());
+            }
         }
     }
 }

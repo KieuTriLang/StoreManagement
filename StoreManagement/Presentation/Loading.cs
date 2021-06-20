@@ -1,5 +1,6 @@
 ﻿using StoreManagement.Presentation;
 using StoreManagement.Presentation.Admin;
+using StoreManagement.Presentation.Main;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,7 +34,8 @@ namespace StoreManagement
                 }
                 else
                 {
-                    this.Close();
+                    UIMainControl mainControl = new UIMainControl();
+                    mainControl.Show();
                 }
                 this.Close();
             }

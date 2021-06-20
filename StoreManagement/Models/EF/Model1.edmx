@@ -22,10 +22,9 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="IDTABLE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IDTABLE" Type="varchar" MaxLength="255" />
           <Property Name="BILL" Type="text" Nullable="false" />
           <Property Name="CREATED_AT" Type="datetime" />
-          <Property Name="UPDATED_AT" Type="datetime" />
         </EntityType>
         <EntityType Name="categories">
           <Key>
@@ -60,7 +59,7 @@
           <Property Name="ID" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="NAMEPROD" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="CATEGORYID" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="PRICE" Type="int" Nullable="false" />
+          <Property Name="PRICE" Type="float" Nullable="false" />
           <Property Name="BOUGHT" Type="int" Nullable="false" />
           <Property Name="SOLD" Type="int" Nullable="false" />
           <Property Name="CREATED_AT" Type="datetime" />
@@ -76,7 +75,16 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK__accounts__EMPLOY__3493CFA7">
+        <EntityType Name="tables">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RESERVES" Type="int" Nullable="false" />
+          <Property Name="ISEMPTY" Type="int" Nullable="false" />
+          <Property Name="BILL" Type="text" />
+        </EntityType>
+        <Association Name="FK__accounts__EMPLOY__24285DB4">
           <End Role="employees" Type="Self.employees" Multiplicity="0..1" />
           <End Role="accounts" Type="Self.accounts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -88,7 +96,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__products__CATEGO__3587F3E0">
+        <Association Name="FK__products__CATEGO__251C81ED">
           <End Role="categories" Type="Self.categories" Multiplicity="1" />
           <End Role="products" Type="Self.products" Multiplicity="*" />
           <ReferentialConstraint>
@@ -107,11 +115,12 @@
           <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__accounts__EMPLOY__3493CFA7" Association="Self.FK__accounts__EMPLOY__3493CFA7">
+          <EntitySet Name="tables" EntityType="Self.tables" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__accounts__EMPLOY__24285DB4" Association="Self.FK__accounts__EMPLOY__24285DB4">
             <End Role="employees" EntitySet="employees" />
             <End Role="accounts" EntitySet="accounts" />
           </AssociationSet>
-          <AssociationSet Name="FK__products__CATEGO__3587F3E0" Association="Self.FK__products__CATEGO__3587F3E0">
+          <AssociationSet Name="FK__products__CATEGO__251C81ED" Association="Self.FK__products__CATEGO__251C81ED">
             <End Role="categories" EntitySet="categories" />
             <End Role="products" EntitySet="products" />
           </AssociationSet>
@@ -132,17 +141,16 @@
           <Property Name="ROLES" Type="Boolean" />
           <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
           <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="employee" Relationship="Self.FK__accounts__EMPLOY__3493CFA7" FromRole="accounts" ToRole="employees" />
+          <NavigationProperty Name="employee" Relationship="Self.FK__accounts__EMPLOY__24285DB4" FromRole="accounts" ToRole="employees" />
         </EntityType>
         <EntityType Name="bill">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IDTABLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDTABLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="BILL1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
-          <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="category">
           <Key>
@@ -154,7 +162,7 @@
           <Property Name="IMAGE_PATH" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
           <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="products" Relationship="Self.FK__products__CATEGO__3587F3E0" FromRole="categories" ToRole="products" />
+          <NavigationProperty Name="products" Relationship="Self.FK__products__CATEGO__251C81ED" FromRole="categories" ToRole="products" />
         </EntityType>
         <EntityType Name="employee">
           <Key>
@@ -170,7 +178,7 @@
           <Property Name="FULLTIME" Type="Boolean" Nullable="false" />
           <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
           <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="accounts" Relationship="Self.FK__accounts__EMPLOY__3493CFA7" FromRole="employees" ToRole="accounts" />
+          <NavigationProperty Name="accounts" Relationship="Self.FK__accounts__EMPLOY__24285DB4" FromRole="employees" ToRole="accounts" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -179,12 +187,12 @@
           <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NAMEPROD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CATEGORYID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PRICE" Type="Int32" Nullable="false" />
+          <Property Name="PRICE" Type="Double" Nullable="false" />
           <Property Name="BOUGHT" Type="Int32" Nullable="false" />
           <Property Name="SOLD" Type="Int32" Nullable="false" />
           <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
           <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="category" Relationship="Self.FK__products__CATEGO__3587F3E0" FromRole="products" ToRole="categories" />
+          <NavigationProperty Name="category" Relationship="Self.FK__products__CATEGO__251C81ED" FromRole="products" ToRole="categories" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -196,7 +204,16 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK__accounts__EMPLOY__3493CFA7">
+        <EntityType Name="table">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RESERVES" Type="Int32" Nullable="false" />
+          <Property Name="ISEMPTY" Type="Int32" Nullable="false" />
+          <Property Name="BILL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__accounts__EMPLOY__24285DB4">
           <End Role="employees" Type="Self.employee" Multiplicity="0..1" />
           <End Role="accounts" Type="Self.account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -208,7 +225,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__products__CATEGO__3587F3E0">
+        <Association Name="FK__products__CATEGO__251C81ED">
           <End Role="categories" Type="Self.category" Multiplicity="1" />
           <End Role="products" Type="Self.product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -227,11 +244,12 @@
           <EntitySet Name="employees" EntityType="Self.employee" />
           <EntitySet Name="products" EntityType="Self.product" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK__accounts__EMPLOY__3493CFA7" Association="Self.FK__accounts__EMPLOY__3493CFA7">
+          <EntitySet Name="tables" EntityType="Self.table" />
+          <AssociationSet Name="FK__accounts__EMPLOY__24285DB4" Association="Self.FK__accounts__EMPLOY__24285DB4">
             <End Role="employees" EntitySet="employees" />
             <End Role="accounts" EntitySet="accounts" />
           </AssociationSet>
-          <AssociationSet Name="FK__products__CATEGO__3587F3E0" Association="Self.FK__products__CATEGO__3587F3E0">
+          <AssociationSet Name="FK__products__CATEGO__251C81ED" Association="Self.FK__products__CATEGO__251C81ED">
             <End Role="categories" EntitySet="categories" />
             <End Role="products" EntitySet="products" />
           </AssociationSet>
@@ -262,7 +280,6 @@
                 <ScalarProperty Name="IDTABLE" ColumnName="IDTABLE" />
                 <ScalarProperty Name="BILL1" ColumnName="BILL" />
                 <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
-                <ScalarProperty Name="UPDATED_AT" ColumnName="UPDATED_AT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -316,6 +333,16 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tables">
+            <EntityTypeMapping TypeName="LLAKCoffeeModel.table">
+              <MappingFragment StoreEntitySet="tables">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RESERVES" ColumnName="RESERVES" />
+                <ScalarProperty Name="ISEMPTY" ColumnName="ISEMPTY" />
+                <ScalarProperty Name="BILL" ColumnName="BILL" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

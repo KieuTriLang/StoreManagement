@@ -38,6 +38,7 @@ namespace StoreManagement.Presentation
             this.btnClose = new Guna.UI2.WinForms.Guna2CircleButton();
             this.cbRole = new System.Windows.Forms.CheckBox();
             this.lbError = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // guna2CircleButton1
@@ -202,6 +203,15 @@ namespace StoreManagement.Presentation
             this.lbError.Size = new System.Drawing.Size(0, 20);
             this.lbError.TabIndex = 8;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(342, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(199, 20);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Acc: ADMIN  Pass: NIMDA";
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
@@ -209,6 +219,7 @@ namespace StoreManagement.Presentation
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(29)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(738, 524);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lbError);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.btnClose);
@@ -239,5 +250,6 @@ namespace StoreManagement.Presentation
         private Guna.UI2.WinForms.Guna2CircleButton btnClose;
         private System.Windows.Forms.CheckBox cbRole;
         private System.Windows.Forms.Label lbError;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -29,10 +29,11 @@ namespace StoreManagement.Presentation.Admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.cprgbCompleted = new Guna.UI2.WinForms.Guna2CircleProgressBar();
@@ -59,6 +60,9 @@ namespace StoreManagement.Presentation.Admin
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerDay)).BeginInit();
@@ -108,7 +112,6 @@ namespace StoreManagement.Presentation.Admin
             this.cprgbCompleted.Size = new System.Drawing.Size(152, 152);
             this.cprgbCompleted.TabIndex = 4;
             this.cprgbCompleted.Text = "guna2CircleProgressBar1";
-            this.cprgbCompleted.Value = 89;
             // 
             // label2
             // 
@@ -141,7 +144,6 @@ namespace StoreManagement.Presentation.Admin
             this.prgbYtd.Size = new System.Drawing.Size(227, 10);
             this.prgbYtd.TabIndex = 2;
             this.prgbYtd.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.prgbYtd.Value = 87;
             // 
             // prgbToday
             // 
@@ -154,7 +156,6 @@ namespace StoreManagement.Presentation.Admin
             this.prgbToday.Size = new System.Drawing.Size(227, 10);
             this.prgbToday.TabIndex = 0;
             this.prgbToday.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.prgbToday.Value = 42;
             // 
             // panel2
             // 
@@ -175,22 +176,22 @@ namespace StoreManagement.Presentation.Admin
             // 
             this.dgvPerDay.AllowUserToAddRows = false;
             this.dgvPerDay.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            this.dgvPerDay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
+            this.dgvPerDay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
             this.dgvPerDay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPerDay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(110)))));
             this.dgvPerDay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPerDay.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvPerDay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPerDay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPerDay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
             this.dgvPerDay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
@@ -199,14 +200,14 @@ namespace StoreManagement.Presentation.Admin
             this.Column5,
             this.Column6,
             this.Column7});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPerDay.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPerDay.DefaultCellStyle = dataGridViewCellStyle39;
             this.dgvPerDay.Enabled = false;
             this.dgvPerDay.EnableHeadersVisualStyles = false;
             this.dgvPerDay.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(110)))));
@@ -215,9 +216,9 @@ namespace StoreManagement.Presentation.Admin
             this.dgvPerDay.ReadOnly = true;
             this.dgvPerDay.RowHeadersVisible = false;
             this.dgvPerDay.RowHeadersWidth = 62;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.dgvPerDay.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dgvPerDay.RowsDefaultCellStyle = dataGridViewCellStyle40;
             this.dgvPerDay.RowTemplate.Height = 28;
             this.dgvPerDay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPerDay.Size = new System.Drawing.Size(453, 67);
@@ -444,6 +445,21 @@ namespace StoreManagement.Presentation.Admin
             this.guna2Separator1.Size = new System.Drawing.Size(577, 10);
             this.guna2Separator1.TabIndex = 2;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 8;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 5;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 1;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
             // UIAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -499,5 +515,8 @@ namespace StoreManagement.Presentation.Admin
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private Guna.UI2.WinForms.Guna2CircleProgressBar cprgbCompleted;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
     }
 }

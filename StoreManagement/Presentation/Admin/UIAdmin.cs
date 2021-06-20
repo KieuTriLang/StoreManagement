@@ -16,6 +16,9 @@ namespace StoreManagement.Presentation.Admin
         public UIAdmin()
         {
             InitializeComponent();
+            timer1.Start();
+            //timer2.Start();
+            //timer3.Start();
         }
 
         private void UIAdmin_Load(object sender, EventArgs e)
@@ -45,6 +48,41 @@ namespace StoreManagement.Presentation.Admin
         {
             Guna2Button button = (Guna2Button)sender;
             changeDgvPerDayColor(button.FillColor);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            prgbToday.Value+=2;
+            if(prgbToday.Value == 64)
+            {
+                timer1.Stop();
+            }
+            if(prgbToday.Value == 10)
+            {
+                timer2.Start();
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            prgbYtd.Value+=2;
+            if (prgbYtd.Value == 40)
+            {
+                timer2.Stop();
+            }
+            if(prgbYtd.Value == 6)
+            {
+                timer3.Start();
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            cprgbCompleted.Value+=2;
+            if(cprgbCompleted.Value == 78)
+            {
+                timer3.Stop();
+            }
         }
     }
 }

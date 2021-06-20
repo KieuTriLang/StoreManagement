@@ -2,6 +2,7 @@
 using StoreManagement.Models.EF;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace StoreManagement.Models.DAO
         }
         public List<product> GetByKey(string keyword)
         {
-            return db.products.Where(e => e.ID == keyword || e.NAMEPROD == keyword).ToList();
+            return db.products.Where(e => e.ID == keyword || e.NAMEPROD == keyword || e.CATEGORYID == keyword).ToList();
         }
         public product GetSingleByID(string id)
         {
@@ -24,7 +25,7 @@ namespace StoreManagement.Models.DAO
         }
         public string SetID()
         {
-            string id = "0000" + (db.products.Count()+1);
+            string id = "Prod" + DateTime.Now.ToString("dd") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("yy") + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss"); ;
             return id;
         }
         public bool Add(product info)
@@ -34,9 +35,18 @@ namespace StoreManagement.Models.DAO
                 db.products.Add(info);
                 db.SaveChanges();
             }
-            catch (Exception e)
+            catch (DbEntityValidationException e)
             {
-                Console.WriteLine(e);
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
                 return false;
             }
             return true;

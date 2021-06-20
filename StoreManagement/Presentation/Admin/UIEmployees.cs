@@ -27,7 +27,7 @@ namespace StoreManagement.Presentation.Admin
         private void UIEmployees_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'lLAKCoffeeDataSet.accounts' table. You can move, or remove it, as needed.
-            this.accountsTableAdapter.Fill(this.lLAKCoffeeDataSet.accounts);
+            //this.accountsTableAdapter.Fill(this.lLAKCoffeeDataSet.accounts);
             // TODO: This line of code loads data into the 'lLAKCoffeeDataSet.employees' table. You can move, or remove it, as needed.
             //this.employeesTableAdapter.Fill(this.lLAKCoffeeDataSet.employees);
             EmployeeDAO employees = new EmployeeDAO();
@@ -56,38 +56,51 @@ namespace StoreManagement.Presentation.Admin
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            typeForm = 2;
-            employeeID = dgvEmployee.CurrentRow.Cells["ID"].Value.ToString();
-            UIAEEmployee frm = new UIAEEmployee();
-            frm.ShowDialog();
-            if (frm.Result)
+            if (dgvEmployee.CurrentRow != null)
             {
-                EmployeeDAO employees = new EmployeeDAO();
-                dgvEmployee.DataSource = employees.GetAll();
-            }
+                typeForm = 2;
+                employeeID = dgvEmployee.CurrentRow.Cells["ID"].Value.ToString();
+                UIAEEmployee frm = new UIAEEmployee();
+                frm.ShowDialog();
+                if (frm.Result)
+                {
+                    EmployeeDAO employees = new EmployeeDAO();
+                    dgvEmployee.DataSource = employees.GetAll();
+                }
+            }            
         }
 
         private void btnFind_Click(object sender, EventArgs e)
         {
             EmployeeDAO employee = new EmployeeDAO();
-            dgvEmployee.DataSource = employee.GetByKey(tbFind.Text.Trim());
+            if (tbFind.Text.Trim() == "/all")
+            {
+                dgvEmployee.DataSource = employee.GetAll();
+            }
+            else
+            {                
+                dgvEmployee.DataSource = employee.GetByKey(tbFind.Text.Trim());
+            }
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            employeeID = dgvEmployee.CurrentRow.Cells["ID"].Value.ToString();
-            EmployeeDAO eDAO = new EmployeeDAO();
-            AccountDAO aDAO = new AccountDAO();
-            if (aDAO.Delete(employeeID) && eDAO.Delete(employeeID) )
+            if(dgvEmployee.CurrentRow != null)
             {
-                MessageBox.Show("Delete successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dgvEmployee.DataSource = eDAO.GetAll();
-            }
-            else 
-            {
-                MessageBox.Show("Delete failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                employeeID = dgvEmployee.CurrentRow.Cells["ID"].Value.ToString();
+                EmployeeDAO eDAO = new EmployeeDAO();
+                AccountDAO aDAO = new AccountDAO();
+                if (aDAO.Delete(employeeID) && eDAO.Delete(employeeID))
+                {
+                    MessageBox.Show("Delete successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvEmployee.DataSource = eDAO.GetAll();
+                }
+                else
+                {
+                    MessageBox.Show("Delete failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            };
+                };
+            }            
         }
     }
 }

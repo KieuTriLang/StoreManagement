@@ -25,7 +25,7 @@ namespace StoreManagement.Models.DAO
         }
         public string SetID()
         {
-            string id = "0000" + (db.employees.Count() + 1);
+            string id = "Emp" + DateTime.Now.ToString("dd") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("yy") + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss"); ;
             return id;
         }
         public bool Add(employee info)
@@ -60,7 +60,7 @@ namespace StoreManagement.Models.DAO
             }
             catch (DbEntityValidationException e)
             {
-                foreach (var eve in e.EntityValidationErrors)
+                /*foreach (var eve in e.EntityValidationErrors)
                 {
                     Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
                         eve.Entry.Entity.GetType().Name, eve.Entry.State);
@@ -69,8 +69,8 @@ namespace StoreManagement.Models.DAO
                         Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
                             ve.PropertyName, ve.ErrorMessage);
                     }
-                }
-                //Console.WriteLine(e);
+                }*/
+                Console.WriteLine(e);
                 return false;
             }
             return true;

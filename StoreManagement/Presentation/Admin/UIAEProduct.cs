@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -16,6 +17,7 @@ namespace StoreManagement.Presentation.Admin
     public partial class UIAEProduct : Form
     {
         private bool result_;
+
         public bool Result
         {
             get
@@ -26,6 +28,10 @@ namespace StoreManagement.Presentation.Admin
         public UIAEProduct()
         {
             InitializeComponent();
+            CategoryDAO categoryDAO = new CategoryDAO();
+            cbCategory.DisplayMember = "CateText";
+            cbCategory.ValueMember = "CateID";
+            cbCategory.DataSource = categoryDAO.GetCategory();
             if (UIProducts.instance.typeForm == 0)
             {
                 btnTitle.Text = "Details";
@@ -77,8 +83,8 @@ namespace StoreManagement.Presentation.Admin
             product product = new product();
             product.ID = UIProducts.instance.typeForm == 1 ? eDAO.SetID() : UIProducts.instance.productID;
             product.NAMEPROD = tbNameProd.Text.Trim();
-            product.CATEGORYID = cbCategory.Text.Trim();
-            product.PRICE = Int32.Parse(tbPrice.Text.Trim());
+            product.CATEGORYID = cbCategory.SelectedValue.ToString();
+            product.PRICE = Double.Parse(tbPrice.Text.Trim());
             product.BOUGHT = Int32.Parse(tbBought.Text.Trim());
             product.SOLD = Int32.Parse(tbSold.Text.Trim());
             return product;
@@ -125,21 +131,37 @@ namespace StoreManagement.Presentation.Admin
 
         private void LoadData(string id)
         {
-            ProductDAO eDAO = new ProductDAO();
-            product info = eDAO.GetSingleByID(id);
-            tbNameProd.Text = info.NAMEPROD;
-            cbCategory.Text = info.CATEGORYID;
-            tbPrice.Text = info.PRICE.ToString();
-            tbBought.Text = info.BOUGHT.ToString();
-            tbSold.Text = info.SOLD.ToString();
+            if(id != null)
+            {
+                ProductDAO eDAO = new ProductDAO();
+                product info = eDAO.GetSingleByID(id);
+                tbNameProd.Text = info.NAMEPROD;
+                cbCategory.Text = info.CATEGORYID;
+                tbPrice.Text = info.PRICE.ToString();
+                tbBought.Text = info.BOUGHT.ToString();
+                tbSold.Text = info.SOLD.ToString();
+            }
+            
         }
         private bool checkTB()
-        {
-            if (tbNameProd.Text.Trim() == "" || cbCategory.Text.Trim() == "" || Int32.TryParse(tbPrice.Text.Trim(), out int salary) == false || Int32.TryParse(tbBought.Text.Trim(), out int bought) == false || Int32.TryParse(tbSold.Text.Trim(), out int sold) == false)
+        { 
+            if (tbNameProd.Text.Trim() != "" && cbCategory.Text.Trim() != "")
             {
-                return false;
+                if(Double.TryParse(tbPrice.Text.Trim(), out double money) == false)
+                {
+                    tbPrice.Text = "0";
+                }
+                if (Int32.TryParse(tbBought.Text.Trim(), out int bought) == false)
+                {
+                    tbBought.Text = "0";
+                }
+                if (Int32.TryParse(tbSold.Text.Trim(), out int sold) == false)
+                {
+                    tbSold.Text = "0";
+                }
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

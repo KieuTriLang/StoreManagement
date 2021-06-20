@@ -42,6 +42,9 @@
     <Reference Include="Guna.UI2, Version=1.0.1.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.1.7\lib\net40\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -70,6 +73,7 @@
     <Compile Include="Models\DAO\CategoryDAO.cs" />
     <Compile Include="Models\DAO\EmployeeDAO.cs" />
     <Compile Include="Models\DAO\ProductDAO.cs" />
+    <Compile Include="Models\DAO\TableDAO.cs" />
     <Compile Include="Models\EF\account.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -101,6 +105,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EF\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\table.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Admin\UIAECategory.cs">
@@ -169,12 +176,43 @@
     <Compile Include="Presentation\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\Main\UIHistoryControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Main\UIHistoryControl.Designer.cs">
+      <DependentUpon>UIHistoryControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Main\UIMainControl.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\Main\UIMainControl.Designer.cs">
       <DependentUpon>UIMainControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\Main\UIOrderControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Main\UIOrderControl.Designer.cs">
+      <DependentUpon>UIOrderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Main\UISubOrder\QuantityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Main\UISubOrder\QuantityForm.Designer.cs">
+      <DependentUpon>QuantityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Main\UISubOrder\SubOrderHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Main\UISubOrder\SubOrderHistory.Designer.cs">
+      <DependentUpon>SubOrderHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Main\UITableControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Main\UITableControl.Designer.cs">
+      <DependentUpon>UITableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductOrder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentation\Admin\UIAECategory.resx">
@@ -209,6 +247,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Main\UIHistoryControl.resx">
+      <DependentUpon>UIHistoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Main\UIMainControl.resx">
+      <DependentUpon>UIMainControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Main\UIOrderControl.resx">
+      <DependentUpon>UIOrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Main\UISubOrder\QuantityForm.resx">
+      <DependentUpon>QuantityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Main\UISubOrder\SubOrderHistory.resx">
+      <DependentUpon>SubOrderHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Main\UITableControl.resx">
+      <DependentUpon>UITableControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -296,6 +352,22 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ice_cream_sundae_64px.png" />
+    <None Include="Resources\green_tea_64px.png" />
+    <None Include="Resources\coffee_to_go_64px.png" />
+    <None Include="Resources\shopping-list.png" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\note.png" />
+    <None Include="Resources\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_64px.png" />
+    <None Include="Resources\ok_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\EF\Model1.Context.tt">

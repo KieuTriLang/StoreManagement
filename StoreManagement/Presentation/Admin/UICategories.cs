@@ -73,35 +73,41 @@ namespace StoreManagement.Presentation.Admin
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            typeForm = 2;
-            categoryID = dgvCategory.CurrentRow.Cells["ID"].Value.ToString();
-            UIAECategory frm = new UIAECategory();
-            frm.ShowDialog();
-            if (frm.Result)
+            if (dgvCategory.CurrentRow != null)
             {
-                CategoryDAO categoryDAO = new CategoryDAO();
-                imageList1.Images.RemoveByKey(categoryDAO.GetSingleByID(categoryID).ILLUSTRATION);
-                imageList1.Images.Add(frm.Key, Image.FromFile(frm.ImagePath));
-                LoadData();
-            }
+                typeForm = 2;
+                categoryID = dgvCategory.CurrentRow.Cells["ID"].Value.ToString();
+                UIAECategory frm = new UIAECategory();
+                frm.ShowDialog();
+                if (frm.Result)
+                {
+                    CategoryDAO categoryDAO = new CategoryDAO();
+                    imageList1.Images.RemoveByKey(categoryDAO.GetSingleByID(categoryID).ILLUSTRATION);
+                    imageList1.Images.Add(frm.Key, Image.FromFile(frm.ImagePath));
+                    LoadData();
+                }
+            }            
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            CategoryDAO categoryDAO = new CategoryDAO();
-            categoryID = dgvCategory.CurrentRow.Cells["ID"].Value.ToString();
-            category cate = categoryDAO.GetSingleByID(categoryID);
-            if (categoryDAO.Delete(categoryID))
+            if(dgvCategory.CurrentRow!= null)
             {
-                imageList1.Images.RemoveByKey(cate.ILLUSTRATION);
-                File.Delete(cate.IMAGE_PATH);
-                MessageBox.Show("Delete successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-            }
-            else
-            {
-                MessageBox.Show("Delete failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                CategoryDAO categoryDAO = new CategoryDAO();
+                categoryID = dgvCategory.CurrentRow.Cells["ID"].Value.ToString();
+                category cate = categoryDAO.GetSingleByID(categoryID);
+                if (categoryDAO.Delete(categoryID))
+                {
+                    imageList1.Images.Clear();
+                    //File.Delete(cate.IMAGE_PATH);
+                    MessageBox.Show("Delete successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Delete failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }            
         }
 
         private void btnFind_Click(object sender, EventArgs e)

@@ -37,8 +37,8 @@ namespace StoreManagement.Presentation.Admin
         //Event
         private void guna2CircleButton1_Click(object sender, EventArgs e)
         {
-            //LoginForm.instance.Close();
-            this.Close();
+            LoginForm.instance.Close();
+            //this.Close();
         }
         private void guna2CircleButton2_Click(object sender, EventArgs e)
         {

@@ -2,6 +2,7 @@
 using StoreManagement.Models.EF;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,18 @@ namespace StoreManagement.Models.DAO
 {
     class CategoryDAO : BaseDAO
     {
+        public class Cate
+        {
+            public string CateID { get; set; }
+            public string CateText { get; set; }
+        }
         public List<category> GetAll()
         {
             return db.categories.ToList();
+        }
+        public List<Cate> GetCategory()
+        {
+            return db.categories.Select(e=>new Cate { CateID = e.ID, CateText = e.CATENAME }).ToList();
         }
         public List<category> GetByKey(string keyword)
         {
@@ -22,9 +32,13 @@ namespace StoreManagement.Models.DAO
         {
             return db.categories.Where(e => e.ID == id).FirstOrDefault();
         }
+        public category GetSingleByName(string name)
+        {
+            return db.categories.Where(e => e.CATENAME == name).FirstOrDefault();
+        }
         public string SetID()
         {
-            string id = "0000" + (db.categories.Count() + 1);
+            string id = "Cate" + DateTime.Now.ToString("dd") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("yy") + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss"); ;
             return id;
         }
         public bool Add(category info)
@@ -67,8 +81,18 @@ namespace StoreManagement.Models.DAO
                 db.categories.Remove(info);
                 db.SaveChanges();
             }
-            catch (Exception e)
+            catch (DbEntityValidationException e)
             {
+                /*foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }*/
                 Console.WriteLine(e);
                 return false;
             }

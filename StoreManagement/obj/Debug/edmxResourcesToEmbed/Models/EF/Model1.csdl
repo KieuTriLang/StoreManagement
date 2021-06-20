@@ -11,17 +11,16 @@
     <Property Name="ROLES" Type="Boolean" />
     <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
     <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="employee" Relationship="Self.FK__accounts__EMPLOY__3493CFA7" FromRole="accounts" ToRole="employees" />
+    <NavigationProperty Name="employee" Relationship="Self.FK__accounts__EMPLOY__24285DB4" FromRole="accounts" ToRole="employees" />
   </EntityType>
   <EntityType Name="bill">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="IDTABLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDTABLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="BILL1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
-    <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="category">
     <Key>
@@ -33,7 +32,7 @@
     <Property Name="IMAGE_PATH" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
     <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="products" Relationship="Self.FK__products__CATEGO__3587F3E0" FromRole="categories" ToRole="products" />
+    <NavigationProperty Name="products" Relationship="Self.FK__products__CATEGO__251C81ED" FromRole="categories" ToRole="products" />
   </EntityType>
   <EntityType Name="employee">
     <Key>
@@ -49,7 +48,7 @@
     <Property Name="FULLTIME" Type="Boolean" Nullable="false" />
     <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
     <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="accounts" Relationship="Self.FK__accounts__EMPLOY__3493CFA7" FromRole="employees" ToRole="accounts" />
+    <NavigationProperty Name="accounts" Relationship="Self.FK__accounts__EMPLOY__24285DB4" FromRole="employees" ToRole="accounts" />
   </EntityType>
   <EntityType Name="product">
     <Key>
@@ -58,12 +57,12 @@
     <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NAMEPROD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CATEGORYID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="PRICE" Type="Int32" Nullable="false" />
+    <Property Name="PRICE" Type="Double" Nullable="false" />
     <Property Name="BOUGHT" Type="Int32" Nullable="false" />
     <Property Name="SOLD" Type="Int32" Nullable="false" />
     <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
     <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="category" Relationship="Self.FK__products__CATEGO__3587F3E0" FromRole="products" ToRole="categories" />
+    <NavigationProperty Name="category" Relationship="Self.FK__products__CATEGO__251C81ED" FromRole="products" ToRole="categories" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -75,7 +74,16 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <Association Name="FK__accounts__EMPLOY__3493CFA7">
+  <EntityType Name="table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RESERVES" Type="Int32" Nullable="false" />
+    <Property Name="ISEMPTY" Type="Int32" Nullable="false" />
+    <Property Name="BILL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__accounts__EMPLOY__24285DB4">
     <End Role="employees" Type="Self.employee" Multiplicity="0..1" />
     <End Role="accounts" Type="Self.account" Multiplicity="*" />
     <ReferentialConstraint>
@@ -87,7 +95,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__products__CATEGO__3587F3E0">
+  <Association Name="FK__products__CATEGO__251C81ED">
     <End Role="categories" Type="Self.category" Multiplicity="1" />
     <End Role="products" Type="Self.product" Multiplicity="*" />
     <ReferentialConstraint>
@@ -106,11 +114,12 @@
     <EntitySet Name="employees" EntityType="Self.employee" />
     <EntitySet Name="products" EntityType="Self.product" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <AssociationSet Name="FK__accounts__EMPLOY__3493CFA7" Association="Self.FK__accounts__EMPLOY__3493CFA7">
+    <EntitySet Name="tables" EntityType="Self.table" />
+    <AssociationSet Name="FK__accounts__EMPLOY__24285DB4" Association="Self.FK__accounts__EMPLOY__24285DB4">
       <End Role="employees" EntitySet="employees" />
       <End Role="accounts" EntitySet="accounts" />
     </AssociationSet>
-    <AssociationSet Name="FK__products__CATEGO__3587F3E0" Association="Self.FK__products__CATEGO__3587F3E0">
+    <AssociationSet Name="FK__products__CATEGO__251C81ED" Association="Self.FK__products__CATEGO__251C81ED">
       <End Role="categories" EntitySet="categories" />
       <End Role="products" EntitySet="products" />
     </AssociationSet>

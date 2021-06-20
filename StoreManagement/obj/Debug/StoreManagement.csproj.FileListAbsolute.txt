@@ -24,3 +24,11 @@ C:\Users\DELL\source\repos\StoreManagement\StoreManagement\bin\Debug\EntityFrame
 C:\Users\DELL\source\repos\StoreManagement\StoreManagement\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\DELL\source\repos\StoreManagement\StoreManagement\bin\Debug\EntityFramework.xml
 C:\Users\DELL\source\repos\StoreManagement\StoreManagement\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Presentation.Main.UIMainControl.resources
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Presentation.Main.UIHistoryControl.resources
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Presentation.Main.UIOrderControl.resources
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Presentation.Main.UITableControl.resources
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Presentation.Main.UISubOrder.SubOrderHistory.resources
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\obj\Debug\StoreManagement.Presentation.Main.UISubOrder.QuantityForm.resources
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DELL\source\repos\StoreManagement\StoreManagement\bin\Debug\Newtonsoft.Json.xml

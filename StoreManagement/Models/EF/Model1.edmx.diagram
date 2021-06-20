@@ -4,15 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4b1dfca9ec54478d98b504b64a1db776" Name="Diagram1">
+      <Diagram DiagramId="66599b3e23914431b268b0c379702625" Name="Diagram1">
         <EntityTypeShape EntityType="LLAKCoffeeModel.account" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="LLAKCoffeeModel.bill" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LLAKCoffeeModel.category" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="LLAKCoffeeModel.employee" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="LLAKCoffeeModel.product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="LLAKCoffeeModel.sysdiagram" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <AssociationConnector Association="LLAKCoffeeModel.FK__accounts__EMPLOY__3493CFA7" ManuallyRouted="false" />
-        <AssociationConnector Association="LLAKCoffeeModel.FK__products__CATEGO__3587F3E0" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LLAKCoffeeModel.table" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="LLAKCoffeeModel.FK__accounts__EMPLOY__24285DB4" ManuallyRouted="false" />
+        <AssociationConnector Association="LLAKCoffeeModel.FK__products__CATEGO__251C81ED" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -17,10 +17,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="IDTABLE" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IDTABLE" Type="varchar" MaxLength="255" />
     <Property Name="BILL" Type="text" Nullable="false" />
     <Property Name="CREATED_AT" Type="datetime" />
-    <Property Name="UPDATED_AT" Type="datetime" />
   </EntityType>
   <EntityType Name="categories">
     <Key>
@@ -55,7 +54,7 @@
     <Property Name="ID" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="NAMEPROD" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="CATEGORYID" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="PRICE" Type="int" Nullable="false" />
+    <Property Name="PRICE" Type="float" Nullable="false" />
     <Property Name="BOUGHT" Type="int" Nullable="false" />
     <Property Name="SOLD" Type="int" Nullable="false" />
     <Property Name="CREATED_AT" Type="datetime" />
@@ -71,7 +70,16 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <Association Name="FK__accounts__EMPLOY__3493CFA7">
+  <EntityType Name="tables">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="RESERVES" Type="int" Nullable="false" />
+    <Property Name="ISEMPTY" Type="int" Nullable="false" />
+    <Property Name="BILL" Type="text" />
+  </EntityType>
+  <Association Name="FK__accounts__EMPLOY__24285DB4">
     <End Role="employees" Type="Self.employees" Multiplicity="0..1" />
     <End Role="accounts" Type="Self.accounts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -83,7 +91,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__products__CATEGO__3587F3E0">
+  <Association Name="FK__products__CATEGO__251C81ED">
     <End Role="categories" Type="Self.categories" Multiplicity="1" />
     <End Role="products" Type="Self.products" Multiplicity="*" />
     <ReferentialConstraint>
@@ -102,11 +110,12 @@
     <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__accounts__EMPLOY__3493CFA7" Association="Self.FK__accounts__EMPLOY__3493CFA7">
+    <EntitySet Name="tables" EntityType="Self.tables" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__accounts__EMPLOY__24285DB4" Association="Self.FK__accounts__EMPLOY__24285DB4">
       <End Role="employees" EntitySet="employees" />
       <End Role="accounts" EntitySet="accounts" />
     </AssociationSet>
-    <AssociationSet Name="FK__products__CATEGO__3587F3E0" Association="Self.FK__products__CATEGO__3587F3E0">
+    <AssociationSet Name="FK__products__CATEGO__251C81ED" Association="Self.FK__products__CATEGO__251C81ED">
       <End Role="categories" EntitySet="categories" />
       <End Role="products" EntitySet="products" />
     </AssociationSet>

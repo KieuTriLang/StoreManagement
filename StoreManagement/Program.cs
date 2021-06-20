@@ -1,5 +1,7 @@
 ﻿using StoreManagement.Presentation;
 using StoreManagement.Presentation.Admin;
+using StoreManagement.Presentation.Main;
+using StoreManagement.Presentation.Main.UISubOrder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +20,7 @@ namespace StoreManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UIManagement());
+            Application.Run(new LoginForm());
         }
     }
 }

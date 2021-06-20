@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StoreManagement.Models.DAO;
+using StoreManagement.Models.EF;
 using StoreManagement.Presentation;
 
 namespace StoreManagement.Presentation
@@ -42,11 +44,20 @@ namespace StoreManagement.Presentation
                 lbError.Text = "*Account or password is incorrect";
             }
         }
-        private bool checkAccount(string account, string pass, bool role)
+        private bool checkAccount(string acc, string pass, bool role)
         {
-            if(account == "admin" && pass == "123456" && role == true)
+            AccountDAO accountDAO = new AccountDAO();
+            account account = accountDAO.GetAccount(acc);
+            if(account != null)
             {
-                return true;
+                if (pass == account.PASS && role == account.ROLES)
+                {
+                    return true;
+                }
+                else
+                {
+                    return true;
+                }
             }
             return false;
         }

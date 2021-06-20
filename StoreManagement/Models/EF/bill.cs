@@ -18,6 +18,5 @@ namespace StoreManagement.Models.EF
         public string IDTABLE { get; set; }
         public string BILL1 { get; set; }
         public Nullable<System.DateTime> CREATED_AT { get; set; }
-        public Nullable<System.DateTime> UPDATED_AT { get; set; }
     }
 }

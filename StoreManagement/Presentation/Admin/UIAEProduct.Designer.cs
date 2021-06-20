@@ -60,7 +60,7 @@ namespace StoreManagement.Presentation.Admin
             // 
             this.tbBought.BorderRadius = 7;
             this.tbBought.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbBought.DefaultText = "";
+            this.tbBought.DefaultText = "0";
             this.tbBought.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
             this.tbBought.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
             this.tbBought.DisabledState.ForeColor = System.Drawing.Color.White;
@@ -79,6 +79,7 @@ namespace StoreManagement.Presentation.Admin
             this.tbBought.PlaceholderForeColor = System.Drawing.Color.White;
             this.tbBought.PlaceholderText = "";
             this.tbBought.SelectedText = "";
+            this.tbBought.SelectionStart = 1;
             this.tbBought.ShadowDecoration.Parent = this.tbBought;
             this.tbBought.Size = new System.Drawing.Size(273, 36);
             this.tbBought.TabIndex = 38;
@@ -98,7 +99,7 @@ namespace StoreManagement.Presentation.Admin
             // 
             this.tbPrice.BorderRadius = 7;
             this.tbPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbPrice.DefaultText = "";
+            this.tbPrice.DefaultText = "0";
             this.tbPrice.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
             this.tbPrice.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
             this.tbPrice.DisabledState.ForeColor = System.Drawing.Color.White;
@@ -117,6 +118,7 @@ namespace StoreManagement.Presentation.Admin
             this.tbPrice.PlaceholderForeColor = System.Drawing.Color.White;
             this.tbPrice.PlaceholderText = "";
             this.tbPrice.SelectedText = "";
+            this.tbPrice.SelectionStart = 1;
             this.tbPrice.ShadowDecoration.Parent = this.tbPrice;
             this.tbPrice.Size = new System.Drawing.Size(273, 36);
             this.tbPrice.TabIndex = 36;
@@ -269,7 +271,7 @@ namespace StoreManagement.Presentation.Admin
             // 
             this.tbSold.BorderRadius = 7;
             this.tbSold.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbSold.DefaultText = "";
+            this.tbSold.DefaultText = "0";
             this.tbSold.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
             this.tbSold.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(89)))), ((int)(((byte)(126)))));
             this.tbSold.DisabledState.ForeColor = System.Drawing.Color.White;
@@ -288,6 +290,7 @@ namespace StoreManagement.Presentation.Admin
             this.tbSold.PlaceholderForeColor = System.Drawing.Color.White;
             this.tbSold.PlaceholderText = "";
             this.tbSold.SelectedText = "";
+            this.tbSold.SelectionStart = 1;
             this.tbSold.ShadowDecoration.Parent = this.tbSold;
             this.tbSold.Size = new System.Drawing.Size(273, 36);
             this.tbSold.TabIndex = 40;

@@ -17,7 +17,7 @@ namespace StoreManagement.Models.EF
         public string ID { get; set; }
         public string NAMEPROD { get; set; }
         public string CATEGORYID { get; set; }
-        public int PRICE { get; set; }
+        public double PRICE { get; set; }
         public int BOUGHT { get; set; }
         public int SOLD { get; set; }
         public Nullable<System.DateTime> CREATED_AT { get; set; }

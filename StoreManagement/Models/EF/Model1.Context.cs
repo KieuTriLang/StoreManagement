@@ -31,5 +31,6 @@ namespace StoreManagement.Models.EF
         public virtual DbSet<employee> employees { get; set; }
         public virtual DbSet<product> products { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<table> tables { get; set; }
     }
 }

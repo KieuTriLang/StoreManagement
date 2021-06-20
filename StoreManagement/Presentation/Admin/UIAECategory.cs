@@ -141,7 +141,7 @@ namespace StoreManagement.Presentation.Admin
             {
                 string key = tbNameCate.Text.Trim();
                 CategoryDAO categoryDAO = new CategoryDAO();
-                string newfilename = Path.Combine(Environment.CurrentDirectory, @"Images\", Path.GetFileName(path));
+                string newfilename = UICategories.instance.typeForm ==2 ? categoryDAO.GetSingleByID(UICategories.instance.categoryID).IMAGE_PATH : Path.Combine(Environment.CurrentDirectory, @"Images\", Path.GetFileName(path));
                 string rename = Path.Combine(Environment.CurrentDirectory, @"Images\", key + ".png");
                 if (File.Exists(rename))
                 {

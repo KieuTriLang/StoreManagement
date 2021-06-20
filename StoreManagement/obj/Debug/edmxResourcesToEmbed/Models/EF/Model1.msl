@@ -21,7 +21,6 @@
           <ScalarProperty Name="IDTABLE" ColumnName="IDTABLE" />
           <ScalarProperty Name="BILL1" ColumnName="BILL" />
           <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
-          <ScalarProperty Name="UPDATED_AT" ColumnName="UPDATED_AT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -75,6 +74,16 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tables">
+      <EntityTypeMapping TypeName="LLAKCoffeeModel.table">
+        <MappingFragment StoreEntitySet="tables">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RESERVES" ColumnName="RESERVES" />
+          <ScalarProperty Name="ISEMPTY" ColumnName="ISEMPTY" />
+          <ScalarProperty Name="BILL" ColumnName="BILL" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
