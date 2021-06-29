@@ -17,6 +17,5 @@ namespace StoreManagement.Models.EF
         public string ID { get; set; }
         public int RESERVES { get; set; }
         public int ISEMPTY { get; set; }
-        public string BILL { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using StoreManagement.Models.DAO;
+using StoreManagement.Models.EF;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +36,7 @@ namespace StoreManagement.Presentation.Admin
             if (frm.Result)
             {
                 ProductDAO products = new ProductDAO();
-                dgvProduct.DataSource = products.GetAll();
+                LoadData();
             }
         }
 
@@ -49,8 +50,7 @@ namespace StoreManagement.Presentation.Admin
                 frm.ShowDialog();
                 if (frm.Result)
                 {
-                    ProductDAO products = new ProductDAO();
-                    dgvProduct.DataSource = products.GetAll();
+                    LoadData();
                 }
             }
         }
@@ -63,7 +63,7 @@ namespace StoreManagement.Presentation.Admin
                 if (productDAO.Delete(productID))
                 {
                     MessageBox.Show("Delete successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dgvProduct.DataSource = productDAO.GetAll();
+                    LoadData();
                 }
                 else
                 {
@@ -75,22 +75,56 @@ namespace StoreManagement.Presentation.Admin
 
         private void UIProducts_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lLAKCoffeeDataSet1.products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.lLAKCoffeeDataSet1.products);
             // TODO: This line of code loads data into the 'lLAKCoffeeDataSet.products' table. You can move, or remove it, as needed.
             //this.productsTableAdapter.Fill(this.lLAKCoffeeDataSet.products);
-            ProductDAO products = new ProductDAO();
-            dgvProduct.DataSource = products.GetAll();
+            LoadData();
         }
-
+        private void LoadData()
+        {
+            dgvProduct.Rows.Clear();
+            ProductDAO products = new ProductDAO();
+            CategoryDAO categoryDAO = new CategoryDAO();
+            foreach (product prod in products.GetAll())
+            {
+                dgvProduct.Rows.Add(new Object[]
+                {
+                    prod.ID,
+                    prod.NAMEPROD,
+                    categoryDAO.GetSingleByID(prod.CATEGORYID).CATENAME,
+                    prod.PRICE,
+                    prod.SOLD
+                });
+            }
+        }
         private void btnFind_Click(object sender, EventArgs e)
         {
             ProductDAO productDAO = new ProductDAO();
             if (tbFind.Text.Trim() == "/all")
             {
-                dgvProduct.DataSource = productDAO.GetAll();
+                LoadData();
+                tbFind.Text = "";
             }
             else
             {
-                dgvProduct.DataSource = productDAO.GetByKey(tbFind.Text.Trim());
+                dgvProduct.Rows.Clear();
+                CategoryDAO categoryDAO = new CategoryDAO();
+                if (categoryDAO.GetSingleByName(tbFind.Text.Trim()) != null)
+                {
+                    foreach (product prod in productDAO.GetByKey(categoryDAO.GetSingleByName(tbFind.Text.Trim()).ID))
+                    {
+                        dgvProduct.Rows.Add(new Object[]
+                        {
+                    prod.ID,
+                    prod.NAMEPROD,
+                    categoryDAO.GetSingleByID(prod.CATEGORYID).CATENAME,
+                    prod.PRICE,
+                    prod.SOLD
+                        });
+                    }
+                }
+                tbFind.Text = "";
             }
         }
     }

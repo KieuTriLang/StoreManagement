@@ -30,6 +30,7 @@ namespace StoreManagement.Presentation.Main
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UIMainControl));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTime = new System.Windows.Forms.Label();
             this.lbDate = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@ namespace StoreManagement.Presentation.Main
             this.btnClose = new Guna.UI2.WinForms.Guna2CircleButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnView = new System.Windows.Forms.Panel();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -264,6 +266,7 @@ namespace StoreManagement.Presentation.Main
             // pnView
             // 
             this.pnView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(153)))), ((int)(((byte)(160)))));
+            this.pnView.Controls.Add(this.guna2Button2);
             this.pnView.Controls.Add(this.guna2ImageButton4);
             this.pnView.Controls.Add(this.guna2ImageButton3);
             this.pnView.Controls.Add(this.guna2ImageButton2);
@@ -273,8 +276,35 @@ namespace StoreManagement.Presentation.Main
             this.pnView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnView.Location = new System.Drawing.Point(0, 148);
             this.pnView.Name = "pnView";
-            this.pnView.Size = new System.Drawing.Size(1300, 752);
+            this.pnView.Size = new System.Drawing.Size(1300, 672);
             this.pnView.TabIndex = 1;
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
+            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.DisabledState.Parent = this.guna2Button2;
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(153)))), ((int)(((byte)(160)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.HoverState.Parent = this.guna2Button2;
+            this.guna2Button2.Image = global::StoreManagement.Properties.Resources.logout;
+            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button2.ImageOffset = new System.Drawing.Point(5, 0);
+            this.guna2Button2.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button2.Location = new System.Drawing.Point(1123, 506);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
+            this.guna2Button2.Size = new System.Drawing.Size(195, 67);
+            this.guna2Button2.TabIndex = 7;
+            this.guna2Button2.Text = "Logout";
+            this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2ImageButton4
             // 
@@ -364,10 +394,11 @@ namespace StoreManagement.Presentation.Main
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(147)))), ((int)(((byte)(154)))));
-            this.ClientSize = new System.Drawing.Size(1300, 900);
+            this.ClientSize = new System.Drawing.Size(1300, 820);
             this.Controls.Add(this.pnView);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UIMainControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UIMainControl";
@@ -400,5 +431,6 @@ namespace StoreManagement.Presentation.Main
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

@@ -1,4 +1,5 @@
-﻿using StoreManagement.DAO.BaseDAO;
+﻿using Newtonsoft.Json;
+using StoreManagement.DAO.BaseDAO;
 using StoreManagement.Models.EF;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,62 @@ namespace StoreManagement.Models.DAO
         }
         public List<bill> GetByKey(string keyword)
         {
-            return db.bills.Where(e => e.ID == keyword).ToList();
+            return db.bills.Where(e => e.PAYERNAME == keyword).ToList();
         }
         public bill GetSingleByID(string id)
         {
             return db.bills.Where(e => e.ID == id).FirstOrDefault();
+        }
+        public string GetOrdersPaid(DateTime day)
+        {
+            if(db.bills.Where(e => e.PAID == true && e.CREATED_AT.Value.Day == day.Day && e.CREATED_AT.Value.Month == day.Month && e.CREATED_AT.Value.Year == day.Year).Count() == 0)
+            {
+                return "---";
+            }
+            else
+            {
+                return db.bills.Where(e => e.PAID == true && e.CREATED_AT.Value.Day == day.Day && e.CREATED_AT.Value.Month == day.Month && e.CREATED_AT.Value.Year == day.Year).Count().ToString();
+            }
+        }
+        public string GetProdPaid(DateTime day)
+        {
+            if (db.bills.Where(e => e.PAID == true && e.CREATED_AT.Value.Day == day.Day && e.CREATED_AT.Value.Month == day.Month && e.CREATED_AT.Value.Year == day.Year).Count() == 0)
+            {
+                return "---";
+            }
+            else
+            {
+                List<bill> list = db.bills.Where(e => e.PAID == true && e.CREATED_AT.Value.Day == day.Day && e.CREATED_AT.Value.Month == day.Month && e.CREATED_AT.Value.Year == day.Year).ToList();
+                double quantity = 0;
+                foreach(bill b in list)
+                {
+                    foreach(ProductOrder productOrder in JsonConvert.DeserializeObject<List<ProductOrder>>(b.BILL1))
+                    {
+                        quantity += productOrder.Quantity;
+                    }
+                }
+                return "" + quantity;
+            }
+        }
+        public string GetIncomePaid(DateTime day)
+        {
+            if (db.bills.Where(e => e.PAID == true && e.CREATED_AT.Value.Day == day.Day && e.CREATED_AT.Value.Month == day.Month && e.CREATED_AT.Value.Year == day.Year).Count() == 0)
+            {
+                return "---";
+            }
+            else
+            {
+                List<bill> list = db.bills.Where(e => e.PAID == true && e.CREATED_AT.Value.Day == day.Day && e.CREATED_AT.Value.Month == day.Month && e.CREATED_AT.Value.Year == day.Year).ToList();
+                double income = 0;
+                foreach (bill b in list)
+                {
+                    foreach (ProductOrder productOrder in JsonConvert.DeserializeObject<List<ProductOrder>>(b.BILL1))
+                    {
+                        income += productOrder.Price * productOrder.Quantity;
+                    }
+                }
+                return "$" + income;
+            }
         }
         public string SetID()
         {
@@ -49,7 +101,7 @@ namespace StoreManagement.Models.DAO
             {
                 var bill = db.bills.Where(e => e.ID == info.ID).FirstOrDefault();
                 bill.ID = info.ID;
-                bill.IDTABLE = info.IDTABLE;
+                bill.PAYERNAME = info.PAYERNAME;
                 bill.BILL1 = info.BILL1;
                 db.SaveChanges();
             }

@@ -33,6 +33,7 @@ namespace StoreManagement.Presentation.Admin
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UIProducts));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -40,23 +41,22 @@ namespace StoreManagement.Presentation.Admin
             this.btnFind = new Guna.UI2.WinForms.Guna2CircleButton();
             this.tbFind = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvProduct = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAMEPROD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CATEGORY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOLD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lLAKCoffeeDataSet1 = new StoreManagement.LLAKCoffeeDataSet1();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.VSBar = new Guna.UI2.WinForms.Guna2VScrollBar();
-            this.lLAKCoffeeDataSet = new StoreManagement.LLAKCoffeeDataSet();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productsTableAdapter = new StoreManagement.LLAKCoffeeDataSetTableAdapters.productsTableAdapter();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nAMEPRODDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cATEGORYIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRICEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bOUGHTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sOLDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsTableAdapter = new StoreManagement.LLAKCoffeeDataSet1TableAdapters.productsTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -163,7 +163,7 @@ namespace StoreManagement.Presentation.Admin
             this.tbFind.Location = new System.Drawing.Point(49, 31);
             this.tbFind.Name = "tbFind";
             this.tbFind.PasswordChar = '\0';
-            this.tbFind.PlaceholderText = "ID,Name or Category";
+            this.tbFind.PlaceholderText = "Category";
             this.tbFind.SelectedText = "";
             this.tbFind.ShadowDecoration.Parent = this.tbFind;
             this.tbFind.Size = new System.Drawing.Size(270, 39);
@@ -175,7 +175,6 @@ namespace StoreManagement.Presentation.Admin
             this.dgvProduct.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
             this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProduct.AutoGenerateColumns = false;
             this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProduct.BackgroundColor = System.Drawing.Color.Black;
             this.dgvProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -192,12 +191,10 @@ namespace StoreManagement.Presentation.Admin
             this.dgvProduct.ColumnHeadersHeight = 20;
             this.dgvProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.nAMEPRODDataGridViewTextBoxColumn,
-            this.cATEGORYIDDataGridViewTextBoxColumn,
-            this.pRICEDataGridViewTextBoxColumn,
-            this.bOUGHTDataGridViewTextBoxColumn,
-            this.sOLDDataGridViewTextBoxColumn});
-            this.dgvProduct.DataSource = this.productsBindingSource;
+            this.NAMEPROD,
+            this.CATEGORY,
+            this.PRICE,
+            this.SOLD});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -243,6 +240,51 @@ namespace StoreManagement.Presentation.Admin
             this.dgvProduct.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvProduct.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProduct_CellMouseDoubleClick);
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 8;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // NAMEPROD
+            // 
+            this.NAMEPROD.HeaderText = "NAMEPROD";
+            this.NAMEPROD.MinimumWidth = 8;
+            this.NAMEPROD.Name = "NAMEPROD";
+            this.NAMEPROD.ReadOnly = true;
+            // 
+            // CATEGORY
+            // 
+            this.CATEGORY.HeaderText = "CATEGORY";
+            this.CATEGORY.MinimumWidth = 8;
+            this.CATEGORY.Name = "CATEGORY";
+            this.CATEGORY.ReadOnly = true;
+            // 
+            // PRICE
+            // 
+            this.PRICE.HeaderText = "PRICE";
+            this.PRICE.MinimumWidth = 8;
+            this.PRICE.Name = "PRICE";
+            this.PRICE.ReadOnly = true;
+            // 
+            // SOLD
+            // 
+            this.SOLD.HeaderText = "SOLD";
+            this.SOLD.MinimumWidth = 8;
+            this.SOLD.Name = "SOLD";
+            this.SOLD.ReadOnly = true;
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "products";
+            this.productsBindingSource.DataSource = this.lLAKCoffeeDataSet1;
+            // 
+            // lLAKCoffeeDataSet1
+            // 
+            this.lLAKCoffeeDataSet1.DataSetName = "LLAKCoffeeDataSet1";
+            this.lLAKCoffeeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -278,67 +320,9 @@ namespace StoreManagement.Presentation.Admin
             this.VSBar.TabIndex = 3;
             this.VSBar.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(58)))), ((int)(((byte)(150)))));
             // 
-            // lLAKCoffeeDataSet
-            // 
-            this.lLAKCoffeeDataSet.DataSetName = "LLAKCoffeeDataSet";
-            this.lLAKCoffeeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataMember = "products";
-            this.productsBindingSource.DataSource = this.lLAKCoffeeDataSet;
-            // 
             // productsTableAdapter
             // 
             this.productsTableAdapter.ClearBeforeFill = true;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 8;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // nAMEPRODDataGridViewTextBoxColumn
-            // 
-            this.nAMEPRODDataGridViewTextBoxColumn.DataPropertyName = "NAMEPROD";
-            this.nAMEPRODDataGridViewTextBoxColumn.HeaderText = "NAMEPROD";
-            this.nAMEPRODDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nAMEPRODDataGridViewTextBoxColumn.Name = "nAMEPRODDataGridViewTextBoxColumn";
-            this.nAMEPRODDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cATEGORYIDDataGridViewTextBoxColumn
-            // 
-            this.cATEGORYIDDataGridViewTextBoxColumn.DataPropertyName = "CATEGORYID";
-            this.cATEGORYIDDataGridViewTextBoxColumn.HeaderText = "CATEGORY";
-            this.cATEGORYIDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.cATEGORYIDDataGridViewTextBoxColumn.Name = "cATEGORYIDDataGridViewTextBoxColumn";
-            this.cATEGORYIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pRICEDataGridViewTextBoxColumn
-            // 
-            this.pRICEDataGridViewTextBoxColumn.DataPropertyName = "PRICE";
-            this.pRICEDataGridViewTextBoxColumn.HeaderText = "PRICE";
-            this.pRICEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.pRICEDataGridViewTextBoxColumn.Name = "pRICEDataGridViewTextBoxColumn";
-            this.pRICEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bOUGHTDataGridViewTextBoxColumn
-            // 
-            this.bOUGHTDataGridViewTextBoxColumn.DataPropertyName = "BOUGHT";
-            this.bOUGHTDataGridViewTextBoxColumn.HeaderText = "BOUGHT";
-            this.bOUGHTDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.bOUGHTDataGridViewTextBoxColumn.Name = "bOUGHTDataGridViewTextBoxColumn";
-            this.bOUGHTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sOLDDataGridViewTextBoxColumn
-            // 
-            this.sOLDDataGridViewTextBoxColumn.DataPropertyName = "SOLD";
-            this.sOLDDataGridViewTextBoxColumn.HeaderText = "SOLD";
-            this.sOLDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sOLDDataGridViewTextBoxColumn.Name = "sOLDDataGridViewTextBoxColumn";
-            this.sOLDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // UIProducts
             // 
@@ -351,14 +335,15 @@ namespace StoreManagement.Presentation.Admin
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UIProducts";
             this.Text = "Products";
             this.Load += new System.EventHandler(this.UIProducts_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -375,14 +360,13 @@ namespace StoreManagement.Presentation.Admin
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2VScrollBar VSBar;
-        private LLAKCoffeeDataSet lLAKCoffeeDataSet;
+        private LLAKCoffeeDataSet1 lLAKCoffeeDataSet1;
         private System.Windows.Forms.BindingSource productsBindingSource;
-        private LLAKCoffeeDataSetTableAdapters.productsTableAdapter productsTableAdapter;
+        private LLAKCoffeeDataSet1TableAdapters.productsTableAdapter productsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nAMEPRODDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cATEGORYIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pRICEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bOUGHTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sOLDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NAMEPROD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CATEGORY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRICE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SOLD;
     }
 }

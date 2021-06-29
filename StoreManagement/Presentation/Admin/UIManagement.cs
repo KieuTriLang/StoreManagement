@@ -168,5 +168,11 @@ namespace StoreManagement.Presentation.Admin
         {
             lbTime.Text = "Time: " + DateTime.Now.ToString("HH:mm:ss");
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginForm.instance.Show();
+        }
     }
 }

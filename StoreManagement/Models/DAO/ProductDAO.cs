@@ -23,6 +23,10 @@ namespace StoreManagement.Models.DAO
         {
             return db.products.Where(e => e.ID == id).FirstOrDefault();
         }
+        public product GetSingleByName(string name)
+        {
+            return db.products.Where(e => e.NAMEPROD == name).FirstOrDefault();
+        }
         public string SetID()
         {
             string id = "Prod" + DateTime.Now.ToString("dd") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("yy") + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss"); ;

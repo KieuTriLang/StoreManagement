@@ -33,7 +33,6 @@ namespace StoreManagement.Presentation.Admin
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UIEmployees));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -42,28 +41,25 @@ namespace StoreManagement.Presentation.Admin
             this.tbFind = new Guna.UI2.WinForms.Guna2TextBox();
             this.VSBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.dgvEmployee = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lLAKCoffeeDataSet = new StoreManagement.LLAKCoffeeDataSet();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.imageListEmployee = new System.Windows.Forms.ImageList(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
-            this.employeesTableAdapter = new StoreManagement.LLAKCoffeeDataSetTableAdapters.employeesTableAdapter();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKaccountsEMPLOY656C112CBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.accountsTableAdapter = new StoreManagement.LLAKCoffeeDataSetTableAdapters.accountsTableAdapter();
-            this.fULLTIMEDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.sALARYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pOSITONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pHONENUMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aDRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lLAKCoffeeDataSet1 = new StoreManagement.LLAKCoffeeDataSet1();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeesTableAdapter = new StoreManagement.LLAKCoffeeDataSet1TableAdapters.employeesTableAdapter();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fULLNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aDRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pHONENUMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pOSITONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sALARYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fULLTIMEDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fKaccountsEMPLOY656C112CBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -270,16 +266,6 @@ namespace StoreManagement.Presentation.Admin
             this.dgvEmployee.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvEmployee.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEmployee_CellMouseDoubleClick);
             // 
-            // employeesBindingSource
-            // 
-            this.employeesBindingSource.DataMember = "employees";
-            this.employeesBindingSource.DataSource = this.lLAKCoffeeDataSet;
-            // 
-            // lLAKCoffeeDataSet
-            // 
-            this.lLAKCoffeeDataSet.DataSetName = "LLAKCoffeeDataSet";
-            this.lLAKCoffeeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.VSBar);
@@ -289,13 +275,6 @@ namespace StoreManagement.Presentation.Admin
             this.panel2.Size = new System.Drawing.Size(43, 557);
             this.panel2.TabIndex = 4;
             // 
-            // imageListEmployee
-            // 
-            this.imageListEmployee.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListEmployee.ImageStream")));
-            this.imageListEmployee.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListEmployee.Images.SetKeyName(0, "cancel_64px.png");
-            this.imageListEmployee.Images.SetKeyName(1, "ok_64px.png");
-            // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -303,6 +282,20 @@ namespace StoreManagement.Presentation.Admin
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1059, 15);
             this.panel3.TabIndex = 5;
+            // 
+            // accountsTableAdapter
+            // 
+            this.accountsTableAdapter.ClearBeforeFill = true;
+            // 
+            // lLAKCoffeeDataSet1
+            // 
+            this.lLAKCoffeeDataSet1.DataSetName = "LLAKCoffeeDataSet1";
+            this.lLAKCoffeeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataMember = "employees";
+            this.employeesBindingSource.DataSource = this.lLAKCoffeeDataSet1;
             // 
             // employeesTableAdapter
             // 
@@ -316,54 +309,13 @@ namespace StoreManagement.Presentation.Admin
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             // 
-            // fKaccountsEMPLOY656C112CBindingSource
+            // fULLNAMEDataGridViewTextBoxColumn
             // 
-            this.fKaccountsEMPLOY656C112CBindingSource.DataMember = "FK__accounts__EMPLOY__656C112C";
-            this.fKaccountsEMPLOY656C112CBindingSource.DataSource = this.employeesBindingSource;
-            // 
-            // accountsTableAdapter
-            // 
-            this.accountsTableAdapter.ClearBeforeFill = true;
-            // 
-            // fULLTIMEDataGridViewCheckBoxColumn
-            // 
-            this.fULLTIMEDataGridViewCheckBoxColumn.DataPropertyName = "FULLTIME";
-            this.fULLTIMEDataGridViewCheckBoxColumn.HeaderText = "FULLTIME";
-            this.fULLTIMEDataGridViewCheckBoxColumn.MinimumWidth = 8;
-            this.fULLTIMEDataGridViewCheckBoxColumn.Name = "fULLTIMEDataGridViewCheckBoxColumn";
-            this.fULLTIMEDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // sALARYDataGridViewTextBoxColumn
-            // 
-            this.sALARYDataGridViewTextBoxColumn.DataPropertyName = "SALARY";
-            this.sALARYDataGridViewTextBoxColumn.HeaderText = "SALARY";
-            this.sALARYDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sALARYDataGridViewTextBoxColumn.Name = "sALARYDataGridViewTextBoxColumn";
-            this.sALARYDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pOSITONDataGridViewTextBoxColumn
-            // 
-            this.pOSITONDataGridViewTextBoxColumn.DataPropertyName = "POSITON";
-            this.pOSITONDataGridViewTextBoxColumn.HeaderText = "POSITON";
-            this.pOSITONDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.pOSITONDataGridViewTextBoxColumn.Name = "pOSITONDataGridViewTextBoxColumn";
-            this.pOSITONDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pHONENUMEDataGridViewTextBoxColumn
-            // 
-            this.pHONENUMEDataGridViewTextBoxColumn.DataPropertyName = "PHONENUME";
-            this.pHONENUMEDataGridViewTextBoxColumn.HeaderText = "PHONENUME";
-            this.pHONENUMEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.pHONENUMEDataGridViewTextBoxColumn.Name = "pHONENUMEDataGridViewTextBoxColumn";
-            this.pHONENUMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // aDRDataGridViewTextBoxColumn
-            // 
-            this.aDRDataGridViewTextBoxColumn.DataPropertyName = "ADR";
-            this.aDRDataGridViewTextBoxColumn.HeaderText = "ADR";
-            this.aDRDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.aDRDataGridViewTextBoxColumn.Name = "aDRDataGridViewTextBoxColumn";
-            this.aDRDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fULLNAMEDataGridViewTextBoxColumn.DataPropertyName = "FULLNAME";
+            this.fULLNAMEDataGridViewTextBoxColumn.HeaderText = "FULLNAME";
+            this.fULLNAMEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.fULLNAMEDataGridViewTextBoxColumn.Name = "fULLNAMEDataGridViewTextBoxColumn";
+            this.fULLNAMEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dOBDataGridViewTextBoxColumn
             // 
@@ -373,13 +325,45 @@ namespace StoreManagement.Presentation.Admin
             this.dOBDataGridViewTextBoxColumn.Name = "dOBDataGridViewTextBoxColumn";
             this.dOBDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // fULLNAMEDataGridViewTextBoxColumn
+            // aDRDataGridViewTextBoxColumn
             // 
-            this.fULLNAMEDataGridViewTextBoxColumn.DataPropertyName = "FULLNAME";
-            this.fULLNAMEDataGridViewTextBoxColumn.HeaderText = "FULLNAME";
-            this.fULLNAMEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.fULLNAMEDataGridViewTextBoxColumn.Name = "fULLNAMEDataGridViewTextBoxColumn";
-            this.fULLNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.aDRDataGridViewTextBoxColumn.DataPropertyName = "ADR";
+            this.aDRDataGridViewTextBoxColumn.HeaderText = "ADR";
+            this.aDRDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.aDRDataGridViewTextBoxColumn.Name = "aDRDataGridViewTextBoxColumn";
+            this.aDRDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pHONENUMEDataGridViewTextBoxColumn
+            // 
+            this.pHONENUMEDataGridViewTextBoxColumn.DataPropertyName = "PHONENUME";
+            this.pHONENUMEDataGridViewTextBoxColumn.HeaderText = "PHONENUME";
+            this.pHONENUMEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.pHONENUMEDataGridViewTextBoxColumn.Name = "pHONENUMEDataGridViewTextBoxColumn";
+            this.pHONENUMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pOSITONDataGridViewTextBoxColumn
+            // 
+            this.pOSITONDataGridViewTextBoxColumn.DataPropertyName = "POSITON";
+            this.pOSITONDataGridViewTextBoxColumn.HeaderText = "POSITON";
+            this.pOSITONDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.pOSITONDataGridViewTextBoxColumn.Name = "pOSITONDataGridViewTextBoxColumn";
+            this.pOSITONDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sALARYDataGridViewTextBoxColumn
+            // 
+            this.sALARYDataGridViewTextBoxColumn.DataPropertyName = "SALARY";
+            this.sALARYDataGridViewTextBoxColumn.HeaderText = "SALARY";
+            this.sALARYDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sALARYDataGridViewTextBoxColumn.Name = "sALARYDataGridViewTextBoxColumn";
+            this.sALARYDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fULLTIMEDataGridViewCheckBoxColumn
+            // 
+            this.fULLTIMEDataGridViewCheckBoxColumn.DataPropertyName = "FULLTIME";
+            this.fULLTIMEDataGridViewCheckBoxColumn.HeaderText = "FULLTIME";
+            this.fULLTIMEDataGridViewCheckBoxColumn.MinimumWidth = 8;
+            this.fULLTIMEDataGridViewCheckBoxColumn.Name = "fULLTIMEDataGridViewCheckBoxColumn";
+            this.fULLTIMEDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // UIEmployees
             // 
@@ -397,10 +381,9 @@ namespace StoreManagement.Presentation.Admin
             this.Load += new System.EventHandler(this.UIEmployees_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fKaccountsEMPLOY656C112CBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -411,19 +394,17 @@ namespace StoreManagement.Presentation.Admin
         private Guna.UI2.WinForms.Guna2VScrollBar VSBar;
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2DataGridView dgvEmployee;
-        private System.Windows.Forms.ImageList imageListEmployee;
         private Guna.UI2.WinForms.Guna2TextBox tbFind;
         private Guna.UI2.WinForms.Guna2CircleButton btnFind;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel3;
-        private LLAKCoffeeDataSet lLAKCoffeeDataSet;
-        private System.Windows.Forms.BindingSource employeesBindingSource;
-        private LLAKCoffeeDataSetTableAdapters.employeesTableAdapter employeesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.BindingSource fKaccountsEMPLOY656C112CBindingSource;
         private LLAKCoffeeDataSetTableAdapters.accountsTableAdapter accountsTableAdapter;
+        private LLAKCoffeeDataSet1 lLAKCoffeeDataSet1;
+        private System.Windows.Forms.BindingSource employeesBindingSource;
+        private LLAKCoffeeDataSet1TableAdapters.employeesTableAdapter employeesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn fULLNAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dOBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aDRDataGridViewTextBoxColumn;

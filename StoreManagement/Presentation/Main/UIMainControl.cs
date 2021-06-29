@@ -155,5 +155,11 @@ namespace StoreManagement.Presentation.Main
         {
             OpenChildForm(new UIHistoryControl(), sender, RGBColors.color5);
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginForm.instance.Show();
+        }
     }
 }

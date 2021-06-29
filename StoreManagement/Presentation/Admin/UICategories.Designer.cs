@@ -42,19 +42,19 @@ namespace StoreManagement.Presentation.Admin
             this.panel3 = new System.Windows.Forms.Panel();
             this.VSBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.dgvCategory = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.lLAKCoffeeDataSet = new StoreManagement.LLAKCoffeeDataSet();
             this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriesTableAdapter = new StoreManagement.LLAKCoffeeDataSetTableAdapters.categoriesTableAdapter();
+            this.lLAKCoffeeDataSet1 = new StoreManagement.LLAKCoffeeDataSet1();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.categoriesTableAdapter = new StoreManagement.LLAKCoffeeDataSet1TableAdapters.categoriesTableAdapter();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CATENAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ILLUSTRATION = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cATENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cREATEDATDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uPDATEDATDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -200,6 +200,7 @@ namespace StoreManagement.Presentation.Admin
             this.dgvCategory.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
             this.dgvCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCategory.AutoGenerateColumns = false;
             this.dgvCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCategory.BackgroundColor = System.Drawing.Color.Black;
             this.dgvCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -216,8 +217,10 @@ namespace StoreManagement.Presentation.Admin
             this.dgvCategory.ColumnHeadersHeight = 20;
             this.dgvCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.CATENAME,
-            this.ILLUSTRATION});
+            this.cATENAMEDataGridViewTextBoxColumn,
+            this.cREATEDATDataGridViewTextBoxColumn,
+            this.uPDATEDATDataGridViewTextBoxColumn});
+            this.dgvCategory.DataSource = this.categoriesBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -263,6 +266,16 @@ namespace StoreManagement.Presentation.Admin
             this.dgvCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvCategory.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCategory_CellMouseDoubleClick);
             // 
+            // categoriesBindingSource
+            // 
+            this.categoriesBindingSource.DataMember = "categories";
+            this.categoriesBindingSource.DataSource = this.lLAKCoffeeDataSet1;
+            // 
+            // lLAKCoffeeDataSet1
+            // 
+            this.lLAKCoffeeDataSet1.DataSetName = "LLAKCoffeeDataSet1";
+            this.lLAKCoffeeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -271,46 +284,41 @@ namespace StoreManagement.Presentation.Admin
             this.panel2.Size = new System.Drawing.Size(1043, 15);
             this.panel2.TabIndex = 6;
             // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(32, 32);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // lLAKCoffeeDataSet
-            // 
-            this.lLAKCoffeeDataSet.DataSetName = "LLAKCoffeeDataSet";
-            this.lLAKCoffeeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriesBindingSource
-            // 
-            this.categoriesBindingSource.DataMember = "categories";
-            this.categoriesBindingSource.DataSource = this.lLAKCoffeeDataSet;
-            // 
             // categoriesTableAdapter
             // 
             this.categoriesTableAdapter.ClearBeforeFill = true;
             // 
             // ID
             // 
+            this.ID.DataPropertyName = "ID";
             this.ID.HeaderText = "ID";
             this.ID.MinimumWidth = 8;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             // 
-            // CATENAME
+            // cATENAMEDataGridViewTextBoxColumn
             // 
-            this.CATENAME.HeaderText = "CATENAME";
-            this.CATENAME.MinimumWidth = 8;
-            this.CATENAME.Name = "CATENAME";
-            this.CATENAME.ReadOnly = true;
+            this.cATENAMEDataGridViewTextBoxColumn.DataPropertyName = "CATENAME";
+            this.cATENAMEDataGridViewTextBoxColumn.HeaderText = "CATENAME";
+            this.cATENAMEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.cATENAMEDataGridViewTextBoxColumn.Name = "cATENAMEDataGridViewTextBoxColumn";
+            this.cATENAMEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // ILLUSTRATION
+            // cREATEDATDataGridViewTextBoxColumn
             // 
-            this.ILLUSTRATION.HeaderText = "ILLUSTRATION";
-            this.ILLUSTRATION.MinimumWidth = 8;
-            this.ILLUSTRATION.Name = "ILLUSTRATION";
-            this.ILLUSTRATION.ReadOnly = true;
+            this.cREATEDATDataGridViewTextBoxColumn.DataPropertyName = "CREATED_AT";
+            this.cREATEDATDataGridViewTextBoxColumn.HeaderText = "CREATED_AT";
+            this.cREATEDATDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.cREATEDATDataGridViewTextBoxColumn.Name = "cREATEDATDataGridViewTextBoxColumn";
+            this.cREATEDATDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // uPDATEDATDataGridViewTextBoxColumn
+            // 
+            this.uPDATEDATDataGridViewTextBoxColumn.DataPropertyName = "UPDATED_AT";
+            this.uPDATEDATDataGridViewTextBoxColumn.HeaderText = "UPDATED_AT";
+            this.uPDATEDATDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.uPDATEDATDataGridViewTextBoxColumn.Name = "uPDATEDATDataGridViewTextBoxColumn";
+            this.uPDATEDATDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // UICategories
             // 
@@ -329,8 +337,8 @@ namespace StoreManagement.Presentation.Admin
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -347,12 +355,12 @@ namespace StoreManagement.Presentation.Admin
         private System.Windows.Forms.Button btnAdd;
         private Guna.UI2.WinForms.Guna2CircleButton btnFind;
         private Guna.UI2.WinForms.Guna2TextBox tbFind;
-        private System.Windows.Forms.ImageList imageList1;
-        private LLAKCoffeeDataSet lLAKCoffeeDataSet;
+        private LLAKCoffeeDataSet1 lLAKCoffeeDataSet1;
         private System.Windows.Forms.BindingSource categoriesBindingSource;
-        private LLAKCoffeeDataSetTableAdapters.categoriesTableAdapter categoriesTableAdapter;
+        private LLAKCoffeeDataSet1TableAdapters.categoriesTableAdapter categoriesTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CATENAME;
-        private System.Windows.Forms.DataGridViewImageColumn ILLUSTRATION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cATENAMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cREATEDATDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uPDATEDATDataGridViewTextBoxColumn;
     }
 }

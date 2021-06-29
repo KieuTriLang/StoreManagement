@@ -29,6 +29,7 @@ namespace StoreManagement.Presentation
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.tbAccount = new Guna.UI2.WinForms.Guna2TextBox();
@@ -39,6 +40,7 @@ namespace StoreManagement.Presentation
             this.cbRole = new System.Windows.Forms.CheckBox();
             this.lbError = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // guna2CircleButton1
@@ -208,9 +210,18 @@ namespace StoreManagement.Presentation
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(342, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(199, 20);
+            this.label3.Size = new System.Drawing.Size(251, 20);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Acc: ADMIN  Pass: NIMDA";
+            this.label3.Text = "Acc: admin  Pass: 12345  checked";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(342, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(212, 20);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Acc: kieutrilang  Pass: 12345";
             // 
             // LoginForm
             // 
@@ -219,6 +230,7 @@ namespace StoreManagement.Presentation
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(29)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(738, 524);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbError);
             this.Controls.Add(this.cbRole);
@@ -231,6 +243,7 @@ namespace StoreManagement.Presentation
             this.Controls.Add(this.guna2CircleButton1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
@@ -251,5 +264,6 @@ namespace StoreManagement.Presentation
         private System.Windows.Forms.CheckBox cbRole;
         private System.Windows.Forms.Label lbError;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using StoreManagement.Models.DAO;
+using StoreManagement.Models.EF;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +19,15 @@ namespace StoreManagement.Presentation.Main.UISubOrder
         public SubOrderHistory()
         {
             InitializeComponent();
-            guna2DataGridView1.DataSource = new BillDAO().GetAll();
             guna2DataGridView1.BackgroundColor = Color.FromArgb(71, 89, 126);
             pnListOrder.Controls.Clear();
+            btnPay.Hide();
+            LoadOrderHistory();
         }
-
+        private void LoadOrderHistory()
+        {
+            guna2DataGridView1.DataSource = new BillDAO().GetAll();
+        }
         private void SubOrderHistory_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'lLAKCoffeeDataSet.bills' table. You can move, or remove it, as needed.
@@ -106,8 +111,20 @@ namespace StoreManagement.Presentation.Main.UISubOrder
         private void guna2DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             lbIDBill.Text = guna2DataGridView1.CurrentRow.Cells["ID"].Value.ToString();
-            lbIDTable.Text = guna2DataGridView1.CurrentRow.Cells["IDTable"].Value.ToString();
+            tbPayer.Text = guna2DataGridView1.CurrentRow.Cells["PAYERNAME"].Value.ToString();
             json = guna2DataGridView1.CurrentRow.Cells["BILL1"].Value.ToString();
+            if(!(bool)guna2DataGridView1.CurrentRow.Cells["PAID"].Value)
+            {
+                btnPay.Show();
+            }
+            else
+            {
+                btnPay.Hide();
+            }
+            if(tbPayer.Text.Trim() == "")
+            {
+                btnPay.Enabled = false;
+            }
             LoadListOrder(JsonConvert.DeserializeObject<List<ProductOrder>>(json));
         }
 
@@ -125,6 +142,38 @@ namespace StoreManagement.Presentation.Main.UISubOrder
             {
                 MessageBox.Show("Delete failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            string id = guna2DataGridView1.CurrentRow.Cells["ID"].Value.ToString();
+            BillDAO billDAO = new BillDAO();
+            bill bill = billDAO.GetSingleByID(id);
+            bill.PAYERNAME = tbPayer.Text.Trim();
+            bill.PAID = true;
+            billDAO.Edit(bill);
+            pnListOrder.Controls.Clear();
+            btnPay.Hide();
+            tbPayer.Text = "";
+            LoadOrderHistory();
+        }
+
+        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            BillDAO billDAO = new BillDAO();
+            if (tbFind.Text.Trim() == "")
+            {
+                guna2DataGridView1.DataSource = billDAO.GetAll();
+            }
+            else
+            {
+                guna2DataGridView1.DataSource = billDAO.GetByKey(tbFind.Text.Trim());
+            }
+        }
+
+        private void tbPayer_TextChanged(object sender, EventArgs e)
+        {
+            btnPay.Enabled = true;
         }
     }
 }

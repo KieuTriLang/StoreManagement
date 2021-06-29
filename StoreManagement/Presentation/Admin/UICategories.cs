@@ -26,8 +26,7 @@ namespace StoreManagement.Presentation.Admin
 
         private void UICategories_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'lLAKCoffeeDataSet.categories' table. You can move, or remove it, as needed.
-            //this.categoriesTableAdapter.Fill(this.lLAKCoffeeDataSet.categories);
+            this.categoriesTableAdapter.Fill(this.lLAKCoffeeDataSet1.categories);
             LoadData();
         }
         private void LoadData()
@@ -35,21 +34,7 @@ namespace StoreManagement.Presentation.Admin
             CategoryDAO categoryDAO = new CategoryDAO();
             //dgvCategory.DataSource = categoryDAO.GetAll();
             List<category> data = categoryDAO.GetAll();
-            imageList1.Images.Clear();
-            dgvCategory.Rows.Clear();
-            dgvCategory.Refresh();
-            foreach (category category in data)
-            {
-                imageList1.Images.Add(category.ILLUSTRATION, Image.FromFile(category.IMAGE_PATH));
-                dgvCategory.Rows.Add(
-                    new Object[]
-                    {
-                        category.ID,
-                        category.CATENAME,
-                        imageList1.Images[category.ILLUSTRATION]
-                    }
-                    );
-            }
+            dgvCategory.DataSource = data;
         }
         private void dgvCategory_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -66,7 +51,6 @@ namespace StoreManagement.Presentation.Admin
             frm.ShowDialog();
             if (frm.Result)
             {
-                imageList1.Images.Add(frm.Key, Image.FromFile(frm.ImagePath));
                 LoadData();
             }
         }
@@ -81,9 +65,6 @@ namespace StoreManagement.Presentation.Admin
                 frm.ShowDialog();
                 if (frm.Result)
                 {
-                    CategoryDAO categoryDAO = new CategoryDAO();
-                    imageList1.Images.RemoveByKey(categoryDAO.GetSingleByID(categoryID).ILLUSTRATION);
-                    imageList1.Images.Add(frm.Key, Image.FromFile(frm.ImagePath));
                     LoadData();
                 }
             }            
@@ -98,8 +79,6 @@ namespace StoreManagement.Presentation.Admin
                 category cate = categoryDAO.GetSingleByID(categoryID);
                 if (categoryDAO.Delete(categoryID))
                 {
-                    imageList1.Images.Clear();
-                    //File.Delete(cate.IMAGE_PATH);
                     MessageBox.Show("Delete successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadData();
                 }
@@ -121,21 +100,7 @@ namespace StoreManagement.Presentation.Admin
                 CategoryDAO categoryDAO = new CategoryDAO();
                 //dgvCategory.DataSource = categoryDAO.GetAll();
                 List<category> data = categoryDAO.GetByKey(tbFind.Text.Trim());
-                imageList1.Images.Clear();
-                dgvCategory.Rows.Clear();
-                dgvCategory.Refresh();
-                foreach (category category in data)
-                {
-                    imageList1.Images.Add(category.ILLUSTRATION, Image.FromFile(category.IMAGE_PATH));
-                    dgvCategory.Rows.Add(
-                        new Object[]
-                        {
-                        category.ID,
-                        category.CATENAME,
-                        imageList1.Images[category.ILLUSTRATION]
-                        }
-                        );
-                }
+                dgvCategory.DataSource = data;
             }
             
         }

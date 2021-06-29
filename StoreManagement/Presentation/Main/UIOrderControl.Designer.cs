@@ -50,8 +50,8 @@ namespace StoreManagement.Presentation.Main
             this.NAMEPROD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnViewOrder = new Guna.UI2.WinForms.Guna2Panel();
-            this.lbIDTable = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.tbPayer = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cbPaybill = new System.Windows.Forms.CheckBox();
             this.lbIDBill = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
@@ -218,10 +218,10 @@ namespace StoreManagement.Presentation.Main
             this.cbCate.HoverState.Parent = this.cbCate;
             this.cbCate.ItemHeight = 16;
             this.cbCate.ItemsAppearance.Parent = this.cbCate;
-            this.cbCate.Location = new System.Drawing.Point(423, 15);
+            this.cbCate.Location = new System.Drawing.Point(220, 15);
             this.cbCate.Name = "cbCate";
             this.cbCate.ShadowDecoration.Parent = this.cbCate;
-            this.cbCate.Size = new System.Drawing.Size(187, 22);
+            this.cbCate.Size = new System.Drawing.Size(376, 22);
             this.cbCate.TabIndex = 0;
             this.cbCate.SelectedIndexChanged += new System.EventHandler(this.cbCate_SelectedIndexChanged);
             // 
@@ -324,8 +324,8 @@ namespace StoreManagement.Presentation.Main
             // 
             // pnViewOrder
             // 
-            this.pnViewOrder.Controls.Add(this.lbIDTable);
-            this.pnViewOrder.Controls.Add(this.label8);
+            this.pnViewOrder.Controls.Add(this.tbPayer);
+            this.pnViewOrder.Controls.Add(this.cbPaybill);
             this.pnViewOrder.Controls.Add(this.lbIDBill);
             this.pnViewOrder.Controls.Add(this.label6);
             this.pnViewOrder.Controls.Add(this.btnCancel);
@@ -347,27 +347,41 @@ namespace StoreManagement.Presentation.Main
             this.pnViewOrder.Size = new System.Drawing.Size(610, 534);
             this.pnViewOrder.TabIndex = 1;
             // 
-            // lbIDTable
+            // tbPayer
             // 
-            this.lbIDTable.AutoSize = true;
-            this.lbIDTable.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIDTable.ForeColor = System.Drawing.Color.White;
-            this.lbIDTable.Location = new System.Drawing.Point(570, 26);
-            this.lbIDTable.Name = "lbIDTable";
-            this.lbIDTable.Size = new System.Drawing.Size(43, 21);
-            this.lbIDTable.TabIndex = 20;
-            this.lbIDTable.Text = "0012";
+            this.tbPayer.BorderRadius = 3;
+            this.tbPayer.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbPayer.DefaultText = "";
+            this.tbPayer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbPayer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbPayer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbPayer.DisabledState.Parent = this.tbPayer;
+            this.tbPayer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbPayer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbPayer.FocusedState.Parent = this.tbPayer;
+            this.tbPayer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbPayer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbPayer.HoverState.Parent = this.tbPayer;
+            this.tbPayer.Location = new System.Drawing.Point(46, 435);
+            this.tbPayer.Name = "tbPayer";
+            this.tbPayer.PasswordChar = '\0';
+            this.tbPayer.PlaceholderText = "Type the payer\'s name";
+            this.tbPayer.SelectedText = "";
+            this.tbPayer.ShadowDecoration.Parent = this.tbPayer;
+            this.tbPayer.Size = new System.Drawing.Size(272, 29);
+            this.tbPayer.TabIndex = 22;
             // 
-            // label8
+            // cbPaybill
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(497, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 21);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "ID Table :";
+            this.cbPaybill.AutoSize = true;
+            this.cbPaybill.ForeColor = System.Drawing.Color.White;
+            this.cbPaybill.Location = new System.Drawing.Point(465, 484);
+            this.cbPaybill.Name = "cbPaybill";
+            this.cbPaybill.Size = new System.Drawing.Size(90, 24);
+            this.cbPaybill.TabIndex = 21;
+            this.cbPaybill.Text = "Paid Bill";
+            this.cbPaybill.UseVisualStyleBackColor = true;
+            this.cbPaybill.CheckedChanged += new System.EventHandler(this.cbPaybill_CheckedChanged);
             // 
             // lbIDBill
             // 
@@ -404,7 +418,7 @@ namespace StoreManagement.Presentation.Main
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.HoverState.Parent = this.btnCancel;
             this.btnCancel.Image = global::StoreManagement.Properties.Resources.cancel_64px;
-            this.btnCancel.Location = new System.Drawing.Point(204, 435);
+            this.btnCancel.Location = new System.Drawing.Point(202, 470);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
             this.btnCancel.Size = new System.Drawing.Size(116, 45);
@@ -425,7 +439,7 @@ namespace StoreManagement.Presentation.Main
             this.btnPrint.ForeColor = System.Drawing.Color.White;
             this.btnPrint.HoverState.Parent = this.btnPrint;
             this.btnPrint.Image = global::StoreManagement.Properties.Resources.ok_64px;
-            this.btnPrint.Location = new System.Drawing.Point(46, 435);
+            this.btnPrint.Location = new System.Drawing.Point(46, 470);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.ShadowDecoration.Parent = this.btnPrint;
             this.btnPrint.Size = new System.Drawing.Size(116, 45);
@@ -638,8 +652,6 @@ namespace StoreManagement.Presentation.Main
         private System.Windows.Forms.DataGridViewTextBoxColumn NAMEPROD;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRICE;
         private Guna.UI2.WinForms.Guna2Panel pnViewOrder;
-        private System.Windows.Forms.Label lbIDTable;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lbIDBill;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
@@ -657,5 +669,7 @@ namespace StoreManagement.Presentation.Main
         private System.Windows.Forms.Label lbPrice;
         private System.Windows.Forms.Label lbProdName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cbPaybill;
+        private Guna.UI2.WinForms.Guna2TextBox tbPayer;
     }
 }

@@ -17,8 +17,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="IDTABLE" Type="varchar" MaxLength="255" />
+    <Property Name="PAYERNAME" Type="varchar" MaxLength="255" />
     <Property Name="BILL" Type="text" Nullable="false" />
+    <Property Name="PAID" Type="bit" Nullable="false" />
     <Property Name="CREATED_AT" Type="datetime" />
   </EntityType>
   <EntityType Name="categories">
@@ -27,8 +28,6 @@
     </Key>
     <Property Name="ID" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="CATENAME" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="ILLUSTRATION" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="IMAGE_PATH" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="CREATED_AT" Type="datetime" />
     <Property Name="UPDATED_AT" Type="datetime" />
   </EntityType>
@@ -77,9 +76,8 @@
     <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="RESERVES" Type="int" Nullable="false" />
     <Property Name="ISEMPTY" Type="int" Nullable="false" />
-    <Property Name="BILL" Type="text" />
   </EntityType>
-  <Association Name="FK__accounts__EMPLOY__24285DB4">
+  <Association Name="FK__accounts__EMPLOY__4277DAAA">
     <End Role="employees" Type="Self.employees" Multiplicity="0..1" />
     <End Role="accounts" Type="Self.accounts" Multiplicity="*" />
     <ReferentialConstraint>
@@ -91,7 +89,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__products__CATEGO__251C81ED">
+  <Association Name="FK__products__CATEGO__436BFEE3">
     <End Role="categories" Type="Self.categories" Multiplicity="1" />
     <End Role="products" Type="Self.products" Multiplicity="*" />
     <ReferentialConstraint>
@@ -111,11 +109,11 @@
     <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tables" EntityType="Self.tables" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__accounts__EMPLOY__24285DB4" Association="Self.FK__accounts__EMPLOY__24285DB4">
+    <AssociationSet Name="FK__accounts__EMPLOY__4277DAAA" Association="Self.FK__accounts__EMPLOY__4277DAAA">
       <End Role="employees" EntitySet="employees" />
       <End Role="accounts" EntitySet="accounts" />
     </AssociationSet>
-    <AssociationSet Name="FK__products__CATEGO__251C81ED" Association="Self.FK__products__CATEGO__251C81ED">
+    <AssociationSet Name="FK__products__CATEGO__436BFEE3" Association="Self.FK__products__CATEGO__436BFEE3">
       <End Role="categories" EntitySet="categories" />
       <End Role="products" EntitySet="products" />
     </AssociationSet>

@@ -30,10 +30,10 @@ namespace StoreManagement.Presentation.Admin
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.cprgbCompleted = new Guna.UI2.WinForms.Guna2CircleProgressBar();
@@ -54,7 +54,6 @@ namespace StoreManagement.Presentation.Admin
             this.btnProdSold = new Guna.UI2.WinForms.Guna2Button();
             this.btnOrder = new Guna.UI2.WinForms.Guna2Button();
             this.lbTotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lbOPD = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -164,7 +163,6 @@ namespace StoreManagement.Presentation.Admin
             this.panel2.Controls.Add(this.btnProdSold);
             this.panel2.Controls.Add(this.btnOrder);
             this.panel2.Controls.Add(this.lbTotal);
-            this.panel2.Controls.Add(this.lbOPD);
             this.panel2.Controls.Add(this.guna2Panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -176,22 +174,22 @@ namespace StoreManagement.Presentation.Admin
             // 
             this.dgvPerDay.AllowUserToAddRows = false;
             this.dgvPerDay.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
-            this.dgvPerDay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvPerDay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPerDay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPerDay.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(110)))));
             this.dgvPerDay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPerDay.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvPerDay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPerDay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPerDay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPerDay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
@@ -200,14 +198,14 @@ namespace StoreManagement.Presentation.Admin
             this.Column5,
             this.Column6,
             this.Column7});
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPerDay.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(68)))), ((int)(((byte)(159)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPerDay.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPerDay.Enabled = false;
             this.dgvPerDay.EnableHeadersVisualStyles = false;
             this.dgvPerDay.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(110)))));
@@ -216,9 +214,9 @@ namespace StoreManagement.Presentation.Admin
             this.dgvPerDay.ReadOnly = true;
             this.dgvPerDay.RowHeadersVisible = false;
             this.dgvPerDay.RowHeadersWidth = 62;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.dgvPerDay.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dgvPerDay.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPerDay.RowTemplate.Height = 28;
             this.dgvPerDay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPerDay.Size = new System.Drawing.Size(453, 67);
@@ -383,17 +381,6 @@ namespace StoreManagement.Presentation.Admin
             this.lbTotal.TabIndex = 2;
             this.lbTotal.Text = "Total orders: 20000";
             // 
-            // lbOPD
-            // 
-            this.lbOPD.BackColor = System.Drawing.Color.Transparent;
-            this.lbOPD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lbOPD.ForeColor = System.Drawing.Color.White;
-            this.lbOPD.Location = new System.Drawing.Point(375, 82);
-            this.lbOPD.Name = "lbOPD";
-            this.lbOPD.Size = new System.Drawing.Size(138, 32);
-            this.lbOPD.TabIndex = 1;
-            this.lbOPD.Text = "Orders/D: 56";
-            // 
             // guna2Panel1
             // 
             this.guna2Panel1.BorderColor = System.Drawing.Color.Black;
@@ -500,7 +487,6 @@ namespace StoreManagement.Presentation.Admin
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lbOPD;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbTotal;
         private Guna.UI2.WinForms.Guna2Button btnOrder;
         private Guna.UI2.WinForms.Guna2Button btnIncome;

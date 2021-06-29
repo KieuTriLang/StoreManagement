@@ -62,7 +62,6 @@ namespace StoreManagement.Models.DAO
             {
                 var category = db.categories.Where(e => e.ID == info.ID).FirstOrDefault();
                 category.CATENAME = info.CATENAME;
-                category.ILLUSTRATION = info.ILLUSTRATION;
                 category.UPDATED_AT = DateTime.Now;
                 db.SaveChanges();
             }

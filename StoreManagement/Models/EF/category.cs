@@ -22,8 +22,6 @@ namespace StoreManagement.Models.EF
     
         public string ID { get; set; }
         public string CATENAME { get; set; }
-        public string ILLUSTRATION { get; set; }
-        public string IMAGE_PATH { get; set; }
         public Nullable<System.DateTime> CREATED_AT { get; set; }
         public Nullable<System.DateTime> UPDATED_AT { get; set; }
     

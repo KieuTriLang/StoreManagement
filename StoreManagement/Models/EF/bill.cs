@@ -15,8 +15,9 @@ namespace StoreManagement.Models.EF
     public partial class bill
     {
         public string ID { get; set; }
-        public string IDTABLE { get; set; }
+        public string PAYERNAME { get; set; }
         public string BILL1 { get; set; }
+        public bool PAID { get; set; }
         public Nullable<System.DateTime> CREATED_AT { get; set; }
     }
 }

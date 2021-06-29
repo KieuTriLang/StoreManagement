@@ -18,8 +18,9 @@
       <EntityTypeMapping TypeName="LLAKCoffeeModel.bill">
         <MappingFragment StoreEntitySet="bills">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="IDTABLE" ColumnName="IDTABLE" />
+          <ScalarProperty Name="PAYERNAME" ColumnName="PAYERNAME" />
           <ScalarProperty Name="BILL1" ColumnName="BILL" />
+          <ScalarProperty Name="PAID" ColumnName="PAID" />
           <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -29,8 +30,6 @@
         <MappingFragment StoreEntitySet="categories">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CATENAME" ColumnName="CATENAME" />
-          <ScalarProperty Name="ILLUSTRATION" ColumnName="ILLUSTRATION" />
-          <ScalarProperty Name="IMAGE_PATH" ColumnName="IMAGE_PATH" />
           <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
           <ScalarProperty Name="UPDATED_AT" ColumnName="UPDATED_AT" />
         </MappingFragment>
@@ -83,7 +82,6 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="RESERVES" ColumnName="RESERVES" />
           <ScalarProperty Name="ISEMPTY" ColumnName="ISEMPTY" />
-          <ScalarProperty Name="BILL" ColumnName="BILL" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

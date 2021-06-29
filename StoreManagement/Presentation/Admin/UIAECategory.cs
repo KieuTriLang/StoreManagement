@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -89,34 +90,18 @@ namespace StoreManagement.Presentation.Admin
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
-            if(UICategories.instance.typeForm == 1 || UICategories.instance.typeForm == 2)
-            {
-                OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "PNG files | *.png*";
-                dialog.Multiselect = false;
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    path = dialog.FileName;
-                    btnUpload.Image = new Bitmap(path);
-                }
-            }
+            
         }
 
         private void btnUpload_MouseEnter(object sender, EventArgs e)
         {
-            if(UICategories.instance.typeForm == 1 || UICategories.instance.typeForm == 2)
-            {
-                btnUpload.BackColor = Color.FromArgb(143, 217, 168);
-            }
+            
             
         }
 
         private void btnUpload_MouseLeave(object sender, EventArgs e)
         {
-            if (UICategories.instance.typeForm == 1 || UICategories.instance.typeForm == 2)
-            {
-                btnUpload.BackColor = Color.FromArgb(71, 100, 150);
-            }
+            
         }
         private bool checkTB()
         {
@@ -126,13 +111,12 @@ namespace StoreManagement.Presentation.Admin
             }
             return true;
         }
-        private category InitCategory(string key)
+        private category InitCategory()
         {
             CategoryDAO productDAO = new CategoryDAO();
             category category = new category();
             category.ID = UICategories.instance.typeForm == 1 ? productDAO.SetID() : UICategories.instance.categoryID;
             category.CATENAME = tbNameCate.Text.Trim();
-            category.ILLUSTRATION = key;
             return category;
         }
         private void Save()
@@ -141,27 +125,14 @@ namespace StoreManagement.Presentation.Admin
             {
                 string key = tbNameCate.Text.Trim();
                 CategoryDAO categoryDAO = new CategoryDAO();
-                string newfilename = UICategories.instance.typeForm ==2 ? categoryDAO.GetSingleByID(UICategories.instance.categoryID).IMAGE_PATH : Path.Combine(Environment.CurrentDirectory, @"Images\", Path.GetFileName(path));
-                string rename = Path.Combine(Environment.CurrentDirectory, @"Images\", key + ".png");
-                if (File.Exists(rename))
-                {
-                    lbNotify.Text = "*name already exists";
-                    tbNameCate.Text = "";
-                }
-                else
-                {
-                    File.Copy(path, newfilename);
-                    File.Move(newfilename, rename);
+                
                     if(UICategories.instance.typeForm == 1)
                     {
-                        category category = InitCategory(key);
-                        category.IMAGE_PATH = rename;
+                        category category = InitCategory();
                         if (categoryDAO.Add(category))
                         {
                             MessageBox.Show("Add successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             result_ = true;
-                            key_ = key;
-                            imagePath_ = rename;
                             this.Close();
                         }
                         else
@@ -171,14 +142,11 @@ namespace StoreManagement.Presentation.Admin
                     }
                     else
                     {
-                        category category = InitCategory(key);
-                        category.IMAGE_PATH = rename;
+                        category category = InitCategory();
                         if (categoryDAO.Edit(category))
                         {
                             MessageBox.Show("Edit successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             result_ = true;
-                            key_ = key;
-                            imagePath_ = rename;
                             this.Close();
                         }
                         else
@@ -186,7 +154,7 @@ namespace StoreManagement.Presentation.Admin
                             MessageBox.Show("Edit failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                }
+                
             }
             
         }
@@ -195,7 +163,6 @@ namespace StoreManagement.Presentation.Admin
             CategoryDAO categoryDAO = new CategoryDAO();
             category category = categoryDAO.GetSingleByID(id);
             tbNameCate.Text = category.CATENAME;
-            btnUpload.Image = Image.FromFile(category.IMAGE_PATH);
         }
     }
 }

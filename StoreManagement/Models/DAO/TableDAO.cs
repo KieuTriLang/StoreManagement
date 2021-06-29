@@ -39,7 +39,6 @@ namespace StoreManagement.Models.DAO
             {
                 var table = db.tables.Where(e => e.ID == info.ID).FirstOrDefault();
                 table.ISEMPTY = info.ISEMPTY;
-                table.BILL = info.BILL;
                 db.SaveChanges();
             }
             catch (DbEntityValidationException e)

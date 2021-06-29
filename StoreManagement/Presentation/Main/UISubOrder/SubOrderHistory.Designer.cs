@@ -30,14 +30,14 @@ namespace StoreManagement.Presentation.Main.UISubOrder
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pnViewOrder = new Guna.UI2.WinForms.Guna2Panel();
+            this.tbPayer = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnPay = new Guna.UI2.WinForms.Guna2Button();
             this.btnDel = new Guna.UI2.WinForms.Guna2Button();
-            this.lbIDTable = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.lbIDBill = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lbTotalBill = new System.Windows.Forms.Label();
@@ -53,17 +53,20 @@ namespace StoreManagement.Presentation.Main.UISubOrder
             this.lbPrice = new System.Windows.Forms.Label();
             this.lbProdName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.billsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lLAKCoffeeDataSet = new StoreManagement.LLAKCoffeeDataSet();
             this.billsTableAdapter = new StoreManagement.LLAKCoffeeDataSetTableAdapters.billsTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.tbFind = new Guna.UI2.WinForms.Guna2TextBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.pnViewOrder.SuspendLayout();
             this.pnListOrder.SuspendLayout();
             this.pnItem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.billsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -72,20 +75,21 @@ namespace StoreManagement.Presentation.Main.UISubOrder
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.pnViewOrder, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.guna2DataGridView1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1226, 531);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // pnViewOrder
             // 
+            this.pnViewOrder.Controls.Add(this.tbPayer);
+            this.pnViewOrder.Controls.Add(this.btnPay);
             this.pnViewOrder.Controls.Add(this.btnDel);
-            this.pnViewOrder.Controls.Add(this.lbIDTable);
-            this.pnViewOrder.Controls.Add(this.label8);
             this.pnViewOrder.Controls.Add(this.lbIDBill);
             this.pnViewOrder.Controls.Add(this.label6);
             this.pnViewOrder.Controls.Add(this.lbTotalBill);
@@ -105,6 +109,52 @@ namespace StoreManagement.Presentation.Main.UISubOrder
             this.pnViewOrder.Size = new System.Drawing.Size(607, 525);
             this.pnViewOrder.TabIndex = 1;
             // 
+            // tbPayer
+            // 
+            this.tbPayer.BorderRadius = 3;
+            this.tbPayer.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbPayer.DefaultText = "";
+            this.tbPayer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbPayer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbPayer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbPayer.DisabledState.Parent = this.tbPayer;
+            this.tbPayer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbPayer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbPayer.FocusedState.Parent = this.tbPayer;
+            this.tbPayer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbPayer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbPayer.HoverState.Parent = this.tbPayer;
+            this.tbPayer.Location = new System.Drawing.Point(382, 463);
+            this.tbPayer.Name = "tbPayer";
+            this.tbPayer.PasswordChar = '\0';
+            this.tbPayer.PlaceholderText = "Type the payer\'s name";
+            this.tbPayer.SelectedText = "";
+            this.tbPayer.ShadowDecoration.Parent = this.tbPayer;
+            this.tbPayer.Size = new System.Drawing.Size(222, 31);
+            this.tbPayer.TabIndex = 24;
+            this.tbPayer.TextChanged += new System.EventHandler(this.tbPayer_TextChanged);
+            // 
+            // btnPay
+            // 
+            this.btnPay.CheckedState.Parent = this.btnPay;
+            this.btnPay.CustomImages.Parent = this.btnPay;
+            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPay.DisabledState.Parent = this.btnPay;
+            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPay.ForeColor = System.Drawing.Color.White;
+            this.btnPay.HoverState.Parent = this.btnPay;
+            this.btnPay.Image = global::StoreManagement.Properties.Resources.ok_64px;
+            this.btnPay.Location = new System.Drawing.Point(46, 435);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.ShadowDecoration.Parent = this.btnPay;
+            this.btnPay.Size = new System.Drawing.Size(142, 60);
+            this.btnPay.TabIndex = 23;
+            this.btnPay.Text = "Pay the bill";
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            // 
             // btnDel
             // 
             this.btnDel.CheckedState.Parent = this.btnDel;
@@ -118,35 +168,13 @@ namespace StoreManagement.Presentation.Main.UISubOrder
             this.btnDel.ForeColor = System.Drawing.Color.White;
             this.btnDel.HoverState.Parent = this.btnDel;
             this.btnDel.Image = global::StoreManagement.Properties.Resources.delete;
-            this.btnDel.Location = new System.Drawing.Point(46, 435);
+            this.btnDel.Location = new System.Drawing.Point(208, 435);
             this.btnDel.Name = "btnDel";
             this.btnDel.ShadowDecoration.Parent = this.btnDel;
             this.btnDel.Size = new System.Drawing.Size(142, 60);
             this.btnDel.TabIndex = 21;
             this.btnDel.Text = "Delete";
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
-            // 
-            // lbIDTable
-            // 
-            this.lbIDTable.AutoSize = true;
-            this.lbIDTable.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIDTable.ForeColor = System.Drawing.Color.White;
-            this.lbIDTable.Location = new System.Drawing.Point(567, 26);
-            this.lbIDTable.Name = "lbIDTable";
-            this.lbIDTable.Size = new System.Drawing.Size(46, 21);
-            this.lbIDTable.TabIndex = 20;
-            this.lbIDTable.Text = "0000";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(497, 26);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 21);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "ID Table :";
             // 
             // lbIDBill
             // 
@@ -327,46 +355,70 @@ namespace StoreManagement.Presentation.Main.UISubOrder
             this.label1.TabIndex = 0;
             this.label1.Text = "List Order";
             // 
+            // billsBindingSource
+            // 
+            this.billsBindingSource.DataMember = "bills";
+            this.billsBindingSource.DataSource = this.lLAKCoffeeDataSet;
+            // 
+            // lLAKCoffeeDataSet
+            // 
+            this.lLAKCoffeeDataSet.DataSetName = "LLAKCoffeeDataSet";
+            this.lLAKCoffeeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // billsTableAdapter
+            // 
+            this.billsTableAdapter.ClearBeforeFill = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tbFind);
+            this.panel1.Controls.Add(this.guna2DataGridView1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(607, 525);
+            this.panel1.TabIndex = 2;
+            // 
             // guna2DataGridView1
             // 
             this.guna2DataGridView1.AllowUserToAddRows = false;
             this.guna2DataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(223)))), ((int)(((byte)(219)))));
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(223)))), ((int)(((byte)(219)))));
+            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.guna2DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.guna2DataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.guna2DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.guna2DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.guna2DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.guna2DataGridView1.ColumnHeadersHeight = 32;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(233)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(185)))), ((int)(((byte)(175)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
-            this.guna2DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(233)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(185)))), ((int)(((byte)(175)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.guna2DataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2DataGridView1.EnableHeadersVisualStyles = false;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(222)))), ((int)(((byte)(218)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(0, 69);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.ReadOnly = true;
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 62;
             this.guna2DataGridView1.RowTemplate.Height = 28;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(607, 525);
-            this.guna2DataGridView1.TabIndex = 2;
+            this.guna2DataGridView1.Size = new System.Drawing.Size(607, 456);
+            this.guna2DataGridView1.TabIndex = 3;
             this.guna2DataGridView1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Teal;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(223)))), ((int)(((byte)(219)))));
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -391,19 +443,30 @@ namespace StoreManagement.Presentation.Main.UISubOrder
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.guna2DataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.guna2DataGridView1_CellMouseClick);
             // 
-            // billsBindingSource
+            // tbFind
             // 
-            this.billsBindingSource.DataMember = "bills";
-            this.billsBindingSource.DataSource = this.lLAKCoffeeDataSet;
-            // 
-            // lLAKCoffeeDataSet
-            // 
-            this.lLAKCoffeeDataSet.DataSetName = "LLAKCoffeeDataSet";
-            this.lLAKCoffeeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // billsTableAdapter
-            // 
-            this.billsTableAdapter.ClearBeforeFill = true;
+            this.tbFind.BorderRadius = 4;
+            this.tbFind.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbFind.DefaultText = "";
+            this.tbFind.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbFind.DisabledState.Parent = this.tbFind;
+            this.tbFind.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbFind.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.FocusedState.Parent = this.tbFind;
+            this.tbFind.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbFind.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFind.HoverState.Parent = this.tbFind;
+            this.tbFind.Location = new System.Drawing.Point(28, 15);
+            this.tbFind.Name = "tbFind";
+            this.tbFind.PasswordChar = '\0';
+            this.tbFind.PlaceholderText = "Type the payer\'s name";
+            this.tbFind.SelectedText = "";
+            this.tbFind.ShadowDecoration.Parent = this.tbFind;
+            this.tbFind.Size = new System.Drawing.Size(218, 31);
+            this.tbFind.TabIndex = 4;
+            this.tbFind.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged);
             // 
             // SubOrderHistory
             // 
@@ -421,9 +484,10 @@ namespace StoreManagement.Presentation.Main.UISubOrder
             this.pnListOrder.ResumeLayout(false);
             this.pnItem.ResumeLayout(false);
             this.pnItem.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.billsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lLAKCoffeeDataSet)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,8 +495,6 @@ namespace StoreManagement.Presentation.Main.UISubOrder
         #endregion
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2Panel pnViewOrder;
-        private System.Windows.Forms.Label lbIDTable;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lbIDBill;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbTotalBill;
@@ -448,10 +510,14 @@ namespace StoreManagement.Presentation.Main.UISubOrder
         private System.Windows.Forms.Label lbPrice;
         private System.Windows.Forms.Label lbProdName;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private LLAKCoffeeDataSet lLAKCoffeeDataSet;
         private System.Windows.Forms.BindingSource billsBindingSource;
         private LLAKCoffeeDataSetTableAdapters.billsTableAdapter billsTableAdapter;
         private Guna.UI2.WinForms.Guna2Button btnDel;
+        private Guna.UI2.WinForms.Guna2Button btnPay;
+        private Guna.UI2.WinForms.Guna2TextBox tbPayer;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2TextBox tbFind;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
     }
 }

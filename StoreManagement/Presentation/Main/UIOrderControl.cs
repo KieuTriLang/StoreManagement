@@ -281,30 +281,48 @@ namespace StoreManagement.Presentation.Main
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            BillDAO billDAO = new BillDAO();
-            if(bill.Count() != 0)
+            if (tbPayer.Text.Trim() != "" && cbPaybill.Checked==true || tbPayer.Text.Trim() == "" && cbPaybill.Checked == false)
             {
-                bill b = InitBill();
-                if (billDAO.Add(b))
+                BillDAO billDAO = new BillDAO();
+                if (bill.Count() != 0)
                 {
-                    MessageBox.Show("Add successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bill b = InitBill();
+                    if (billDAO.Add(b))
+                    {
+                        ProductDAO productDAO = new ProductDAO();
+                        foreach(ProductOrder productOrder in bill)
+                        {
+                            product prod = productDAO.GetSingleByName(productOrder.ProductName);
+                            prod.SOLD = productOrder.Quantity;
+                            productDAO.Edit(prod);
+                        }
+                        MessageBox.Show("Add successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Add failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Add failed", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                bill.Clear();
+                cbPaybill.Checked = false;
+                LoadOrderForm();
             }
-            bill.Clear();
-            LoadOrderForm();
+            
         }
         private bill InitBill()
         {
             BillDAO billDAO = new BillDAO();
             bill b = new bill();
             b.ID = billDAO.SetID();
-            b.IDTABLE = lbIDTable.Text;
+            b.PAYERNAME = tbPayer.Text.Trim();
             b.BILL1 = JsonConvert.SerializeObject(bill);
+            b.PAID = cbPaybill.Checked;
             return b;
+        }
+
+        private void cbPaybill_CheckedChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

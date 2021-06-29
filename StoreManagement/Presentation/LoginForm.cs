@@ -36,6 +36,9 @@ namespace StoreManagement.Presentation
                 loadingForm.Show();
                 role = cbRole.Checked;
                 this.Hide();
+                tbAccount.Text = "";
+                tbPassword.Text = "";
+                cbRole.Checked = false;
             }
             else
             {
@@ -51,10 +54,6 @@ namespace StoreManagement.Presentation
             if(account != null)
             {
                 if (pass == account.PASS && role == account.ROLES)
-                {
-                    return true;
-                }
-                else
                 {
                     return true;
                 }

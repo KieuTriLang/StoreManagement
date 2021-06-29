@@ -96,6 +96,7 @@ namespace StoreManagement.Presentation.Admin
             account.EMPLOYEEID = employee.ID;
             account.ACC = tbAccount.Text.Trim();
             account.PASS = tbPassword.Text.Trim();
+            account.ROLES = false;
             return account;
         }
         private void Save()

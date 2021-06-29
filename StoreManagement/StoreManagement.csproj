@@ -67,6 +67,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LLAKCoffeeDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LLAKCoffeeDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LLAKCoffeeDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\DAO\AccountDAO.cs" />
     <Compile Include="Models\DAO\BaseDAO.cs" />
     <Compile Include="Models\DAO\BillDAO.cs" />
@@ -287,6 +292,17 @@
     <None Include="LLAKCoffeeDataSet.xss">
       <DependentUpon>LLAKCoffeeDataSet.xsd</DependentUpon>
     </None>
+    <None Include="LLAKCoffeeDataSet1.xsc">
+      <DependentUpon>LLAKCoffeeDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="LLAKCoffeeDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LLAKCoffeeDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LLAKCoffeeDataSet1.xss">
+      <DependentUpon>LLAKCoffeeDataSet1.xsd</DependentUpon>
+    </None>
     <EntityDeploy Include="Models\EF\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -368,6 +384,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\EF\Model1.Context.tt">

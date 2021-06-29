@@ -26,14 +26,10 @@ namespace StoreManagement.Presentation.Admin
         //private DataGridViewScrollHelper vScrollHelper;
         private void UIEmployees_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'lLAKCoffeeDataSet.accounts' table. You can move, or remove it, as needed.
-            //this.accountsTableAdapter.Fill(this.lLAKCoffeeDataSet.accounts);
-            // TODO: This line of code loads data into the 'lLAKCoffeeDataSet.employees' table. You can move, or remove it, as needed.
-            //this.employeesTableAdapter.Fill(this.lLAKCoffeeDataSet.employees);
+            
+            this.employeesTableAdapter.Fill(this.lLAKCoffeeDataSet1.employees);
             EmployeeDAO employees = new EmployeeDAO();
             dgvEmployee.DataSource = employees.GetAll();
-            //vScrollHelper = new DataGridViewScrollHelper(dgvEmployee, VSBar, true);
-            //vScrollHelper.UpdateScrollBar();
         }
         private void dgvEmployee_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
